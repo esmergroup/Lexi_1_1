@@ -1,0 +1,295 @@
+package java2enterprise_mainFrame;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
+
+public class KomplexeZahlen_ extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField tfReZ1;
+	private JTextField tfReZ2;
+	private JTextField tfImZ1;
+	private JTextField tfImZ2;
+	private JTextField tfErgebnis;
+	
+	static double RealTeil;
+	static double ImagTeil;
+	
+	public static double addieren(double rez1, double imz1, double rez2, double imz2) {
+		
+		double realTeil = rez1 + rez2;
+		double imagTeil = imz1 + imz2;
+
+		RealTeil = realTeil;
+		ImagTeil = imagTeil;
+		
+		return 0;
+	}
+	
+	public static double subtrahieren(double rez1, double imz1, double rez2, double imz2) {
+
+		double realTeil = rez1 - rez2;
+		double imagTeil = imz1 - imz2;
+
+		RealTeil = realTeil;
+		ImagTeil = imagTeil;
+		
+		return 0;
+	}
+	
+	public static double multiplizieren(double rez1, double imz1, double rez2, double imz2) {
+		
+		double realTeil = (rez1 * rez2) - (imz1 * imz2);
+		double imagTeil = (imz1 * rez2) + (imz2 * rez1);
+
+		RealTeil = realTeil;
+		ImagTeil = imagTeil;
+		
+		return 0;
+	}
+	public static double dividieren(double rez1, double imz1, double rez2, double imz2) {
+
+		double realTeil = ((rez1 * rez2) + (imz1 * imz2)) / ((rez1 * rez1) + (imz2 * imz2));
+		double imagTeil = ((rez2 * imz1) - (rez1 * imz2)) / ((rez1 * rez1) + (imz2 * imz2));
+		
+		RealTeil = realTeil;
+		ImagTeil = imagTeil;
+		
+	return 0;
+	}
+
+	public KomplexeZahlen_() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\MuhammetEsmer\\Pictures\\Lexi_Logo.png"));
+		setForeground(Color.ORANGE);
+		setTitle("KomplexeZahlen");
+		setResizable(false);
+		setBackground(Color.WHITE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(700, 600, 444, 170);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Z1:");
+		lblNewLabel.setForeground(Color.ORANGE);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel.setBounds(10, 10, 43, 32);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblZ = new JLabel("Z2:");
+		lblZ.setForeground(Color.ORANGE);
+		lblZ.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblZ.setBounds(10, 53, 43, 32);
+		contentPane.add(lblZ);
+		
+		tfReZ1 = new JTextField();
+		tfReZ1.setBackground(Color.ORANGE);
+		tfReZ1.setBounds(63, 10, 43, 32);
+		contentPane.add(tfReZ1);
+		tfReZ1.setColumns(10);
+		
+		tfReZ2 = new JTextField();
+		tfReZ2.setBackground(Color.ORANGE);
+		tfReZ2.setColumns(10);
+		tfReZ2.setBounds(63, 53, 43, 32);
+		contentPane.add(tfReZ2);
+		
+		JLabel label = new JLabel(" +");
+		label.setForeground(Color.ORANGE);
+		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		label.setBounds(116, 10, 26, 32);
+		contentPane.add(label);
+		
+		JLabel label_1 = new JLabel(" +");
+		label_1.setForeground(Color.ORANGE);
+		label_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		label_1.setBounds(116, 53, 26, 32);
+		contentPane.add(label_1);
+		
+		tfImZ1 = new JTextField();
+		tfImZ1.setBackground(Color.ORANGE);
+		tfImZ1.setColumns(10);
+		tfImZ1.setBounds(152, 10, 43, 32);
+		contentPane.add(tfImZ1);
+		
+		tfImZ2 = new JTextField();
+		tfImZ2.setBackground(Color.ORANGE);
+		tfImZ2.setColumns(10);
+		tfImZ2.setBounds(152, 53, 43, 32);
+		contentPane.add(tfImZ2);
+		
+		JLabel lblI = new JLabel("i");
+		lblI.setForeground(Color.ORANGE);
+		lblI.setFont(new Font("Blackadder ITC", Font.PLAIN, 40));
+		lblI.setBounds(205, 10, 26, 32);
+		contentPane.add(lblI);
+		
+		JLabel label_2 = new JLabel("i");
+		label_2.setForeground(Color.ORANGE);
+		label_2.setFont(new Font("Blackadder ITC", Font.PLAIN, 40));
+		label_2.setBounds(205, 53, 26, 32);
+		contentPane.add(label_2);
+		
+		JButton btnPlus = new JButton("+");
+		btnPlus.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					// Addition
+					tfErgebnis.setText("");
+					double reZ1 = Double.parseDouble(tfReZ1.getText());
+					double imZ1 = Double.parseDouble(tfImZ1.getText());
+					double reZ2 = Double.parseDouble(tfReZ2.getText());
+					double imZ2 = Double.parseDouble(tfImZ2.getText());
+					addieren(reZ1, imZ1, reZ2, imZ2);
+					
+					DecimalFormat format = new DecimalFormat("#0.000");
+					
+					if(ImagTeil < 0) {
+						tfErgebnis.setText("Z1 + Z2 = "+format.format(RealTeil)+" "+format.format(ImagTeil)+" i");
+					}
+					else if((ImagTeil) > 0) {
+						tfErgebnis.setText("Z1 + Z2 = "+format.format(RealTeil)+"+"+format.format(ImagTeil)+" i");
+					}
+				}
+				catch(Exception safdw) {
+					JOptionPane.showMessageDialog(null, "Keine Gültige Eingabe!");
+				}
+			}
+		});
+		btnPlus.setBackground(Color.ORANGE);
+		btnPlus.setBounds(240, 10, 90, 32);
+		contentPane.add(btnPlus);
+		
+		JButton btnSubtrahieren = new JButton("-");
+		btnSubtrahieren.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					// subtraktion
+					tfErgebnis.setText("");
+					double reZ1 = Double.parseDouble(tfReZ1.getText());
+					double imZ1 = Double.parseDouble(tfImZ1.getText());
+					double reZ2 = Double.parseDouble(tfReZ2.getText());
+					double imZ2 = Double.parseDouble(tfImZ2.getText());
+					subtrahieren(reZ1, imZ1, reZ2, imZ2);
+					
+					DecimalFormat format = new DecimalFormat("#0.000");
+					
+					if(ImagTeil < 0) {
+						tfErgebnis.setText("Z1 - Z2 = "+format.format(RealTeil)+" "+format.format(ImagTeil)+" i");
+					}
+					else if((ImagTeil) > 0) {
+						tfErgebnis.setText("Z1 - Z2 = "+format.format(RealTeil)+"+"+format.format(ImagTeil)+" i");
+					}
+				}
+				catch(Exception safdw) {
+					JOptionPane.showMessageDialog(null, "Keine Gültige Eingabe!");
+				}
+			}
+		});
+		btnSubtrahieren.setBackground(Color.ORANGE);
+		btnSubtrahieren.setBounds(340, 10, 90, 32);
+		contentPane.add(btnSubtrahieren);
+		
+		JButton btnGeteilt = new JButton("/");
+		btnGeteilt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					// Division
+					tfErgebnis.setText("");
+					double reZ1 = Double.parseDouble(tfReZ1.getText());
+					double imZ1 = Double.parseDouble(tfImZ1.getText());
+					double reZ2 = Double.parseDouble(tfReZ2.getText());
+					double imZ2 = Double.parseDouble(tfImZ2.getText());
+					dividieren(reZ1, imZ1, reZ2, imZ2);
+					
+					DecimalFormat format = new DecimalFormat("#0.000");
+					
+					if(ImagTeil < 0) {
+						tfErgebnis.setText("Z1 / Z2 = "+format.format(RealTeil)+" "+format.format(ImagTeil)+" i");
+					}
+					else if(ImagTeil > 0) {
+						tfErgebnis.setText("Z1 / Z2 = "+format.format(RealTeil)+"+"+format.format(ImagTeil)+" i");
+					}
+				}
+				catch(Exception safdw) {
+					JOptionPane.showMessageDialog(null, "Keine Gültige Eingabe!");
+				}
+			}
+		});
+		btnGeteilt.setBackground(Color.ORANGE);
+		btnGeteilt.setBounds(340, 53, 90, 32);
+		contentPane.add(btnGeteilt);
+		
+		JButton btnMal = new JButton("*");
+		btnMal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					// Multiplikation
+					tfErgebnis.setText("");
+					double reZ1 = Double.parseDouble(tfReZ1.getText());
+					double imZ1 = Double.parseDouble(tfImZ1.getText());
+					double reZ2 = Double.parseDouble(tfReZ2.getText());
+					double imZ2 = Double.parseDouble(tfImZ2.getText());
+					multiplizieren(reZ1, imZ1, reZ2, imZ2);
+					
+					DecimalFormat format = new DecimalFormat("#0.000");
+					
+					if(ImagTeil < 0) {
+						tfErgebnis.setText("Z1 / Z2 = "+format.format(RealTeil)+" "+format.format(ImagTeil)+" i");
+					}
+					else if(ImagTeil > 0) {
+						tfErgebnis.setText("Z1 / Z2 = "+format.format(RealTeil)+"+"+format.format(ImagTeil)+" i");
+					}
+				}
+				catch(Exception safdw) {
+					JOptionPane.showMessageDialog(null, "Keine Gültige Eingabe!");
+				}
+			}
+		});
+		btnMal.setBackground(Color.ORANGE);
+		btnMal.setBounds(240, 53, 90, 32);
+		contentPane.add(btnMal);
+		
+		JLabel lblErgebnis = new JLabel("Ergebnis:");
+		lblErgebnis.setForeground(Color.ORANGE);
+		lblErgebnis.setFont(new Font("Tahoma", Font.BOLD, 22));
+		lblErgebnis.setBounds(10, 100, 130, 32);
+		contentPane.add(lblErgebnis);
+		
+		tfErgebnis = new JTextField();
+		tfErgebnis.setBackground(Color.ORANGE);
+		tfErgebnis.setFont(new Font("Tahoma", Font.BOLD, 12));
+		tfErgebnis.setEditable(false);
+		tfErgebnis.setBounds(152, 99, 225, 33);
+		contentPane.add(tfErgebnis);
+		tfErgebnis.setColumns(10);
+		
+		JButton btnC = new JButton("C");
+		btnC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tfReZ1.setText("");
+				tfImZ1.setText("");
+				tfReZ2.setText("");
+				tfImZ2.setText("");
+				tfErgebnis.setText("");
+			}
+		});
+		btnC.setBackground(Color.ORANGE);
+		btnC.setBounds(387, 100, 43, 32);
+		contentPane.add(btnC);
+	}
+}
