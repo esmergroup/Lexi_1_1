@@ -1,0 +1,83 @@
+package java2enterprise_mainFrame;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JEditorPane;
+import java.awt.Toolkit;
+
+public class PhyKonstanten extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	public PhyKonstanten() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\MuhammetEsmer\\Pictures\\Lexi_Logo.png"));
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setTitle("Physikalische Konstanten (Alpha)");
+		setBounds(150, 150, 913, 671);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JEditorPane EditorEins = new JEditorPane();
+		EditorEins.setEditable(false);
+		EditorEins.setFont(new Font("Tahoma", Font.BOLD, 14));
+		EditorEins.setBackground(Color.GRAY);
+		EditorEins.setForeground(Color.ORANGE);
+		EditorEins.setText("Zeichen\tEinheit\r\n[A]\tAmpere\r\n[C]\tCoulomb\r\n[eV]\tElektronenvolt\r\n[F] \tFarad\r\n[H]\tHenry\r\n[J]\tJoule\r\n[K]\tKelvin\r\n[kg]\tKilogramm\r\n[kPa]\tKilopascal\r\n[m]\tMeter\r\n[mol]\tMol\r\n[s]\tSekunde\r\n[T]\tTesla\r\n[Vs]\tVoltsekunde\r\n[W]\tWatt\r\n[Wb]\tWeber");
+		EditorEins.setToolTipText("");
+		EditorEins.setBounds(10, 11, 270, 295);
+		contentPane.add(EditorEins);
+		
+		JEditorPane dtrpnAtomareMasseneinheit = new JEditorPane();
+		dtrpnAtomareMasseneinheit.setForeground(Color.ORANGE);
+		dtrpnAtomareMasseneinheit.setBackground(Color.GRAY);
+		dtrpnAtomareMasseneinheit.setFont(new Font("Tahoma", Font.BOLD, 14));
+		dtrpnAtomareMasseneinheit.setEditable(false);
+		dtrpnAtomareMasseneinheit.setText("Atomare Masseneinheit\t\t: u = 1,6605 * 10^-27 kg\r\nEnergie\u00E4quivalent f\u00FCr 1u\t\t: u * c^2 = 931,494 MeV\r\nAvogadrozahl/konstante \t\t: N = 6,022 * 10^26 1/kmol\r\nBolzmannkonstante \t\t: k = 1,3086 * 10^-23 J/K\r\nElektrischefeldkonstante\t\t: E(0) = 8,854 * 10^-12 As/Vm\r\nElementarladung\t\t: e = 1,602 * 10^-19 As\r\nFallbeschleunigung \u00C4quador\t\t: g(A) = 9,802 m/s^2\r\nFallbeschleunigung Pol\t\t: g(P) = 9,867 m/s^2\r\nFaradaykonstante \t\t: F = 9,6485 * 10^7 As/kmol\r\nGaskonstante (Allgemein)\t\t: R = 8,3144 * 10^3\r\nGravitationskonstante\t\t: G = 6,67*10^-11m^3 /kg*s^2\r\nHubble Konstante \t\t: H(o) = 74,2 Mpc^-1\r\nLichtgeschwindigkeit(Vakuum)\t: c = 2.997 * 10^8 m/s\r\nMagnetische Feldkonstante \t\t: \u00B5(0) = 4*PI*10^-7 Vs/Am");
+		dtrpnAtomareMasseneinheit.setBounds(333, 11, 564, 295);
+		contentPane.add(dtrpnAtomareMasseneinheit);
+		
+		JEditorPane dtrpnalphaTeilchen = new JEditorPane();
+		dtrpnalphaTeilchen.setBackground(Color.GRAY);
+		dtrpnalphaTeilchen.setForeground(Color.ORANGE);
+		dtrpnalphaTeilchen.setFont(new Font("Tahoma", Font.BOLD, 14));
+		dtrpnalphaTeilchen.setEditable(false);
+		dtrpnalphaTeilchen.setText("\t            ---Alpha Teilchen---\r\n\r\nRuhemasse\t\t: m = 6,644 * 10^-27kg\r\n\t\t: m = 4,001 u\r\n\r\nRuheenergie\t\t: E = 3727,379 MeV\r\nLadung \t\t: q = +2*e\r\nSpezifischeLadung\t: q/m = 4,82245 * 10^7 As/kg");
+		dtrpnalphaTeilchen.setBounds(10, 317, 436, 150);
+		contentPane.add(dtrpnalphaTeilchen);
+		
+		JEditorPane dtrpnelektronRuhemasse = new JEditorPane();
+		dtrpnelektronRuhemasse.setText("\t                 ---Elektron---\r\n\r\nRuhemasse\t\t: m = 9,109 * 10^-31kg\r\n\t\t: m = 5,485 * 10^-4 u\r\n\r\nRuheenergie\t\t: E = 0,5109 MeV\r\nLadung \t\t: q = -e\r\nSpezifischeLadung\t: q/m = -1,758 * 10^11 As/kg");
+		dtrpnelektronRuhemasse.setForeground(Color.ORANGE);
+		dtrpnelektronRuhemasse.setFont(new Font("Tahoma", Font.BOLD, 14));
+		dtrpnelektronRuhemasse.setEditable(false);
+		dtrpnelektronRuhemasse.setBackground(Color.GRAY);
+		dtrpnelektronRuhemasse.setBounds(461, 317, 436, 150);
+		contentPane.add(dtrpnelektronRuhemasse);
+		
+		JEditorPane dtrpnneutronRuhemasse = new JEditorPane();
+		dtrpnneutronRuhemasse.setText("\t                 ---Neutron---\r\n\r\nRuhemasse\t\t: m = 1,674 * 10^-27kg\r\n\t\t: m = 1,008 * 10^-4 u\r\n\r\nRuheenergie\t\t: E = 939,565 MeV\r\nLadung \t\t: q = 0");
+		dtrpnneutronRuhemasse.setForeground(Color.ORANGE);
+		dtrpnneutronRuhemasse.setFont(new Font("Tahoma", Font.BOLD, 14));
+		dtrpnneutronRuhemasse.setEditable(false);
+		dtrpnneutronRuhemasse.setBackground(Color.GRAY);
+		dtrpnneutronRuhemasse.setBounds(10, 478, 436, 150);
+		contentPane.add(dtrpnneutronRuhemasse);
+		
+		JEditorPane dtrpnelektronRuhemasse_1 = new JEditorPane();
+		dtrpnelektronRuhemasse_1.setText("\t                 ---Proton---\r\n\r\nRuhemasse\t\t: m = 1,6726 * 10^-27kg\r\n\t\t: m = 1,0072 u\r\n\r\nRuheenergie\t\t: E = 938,272 MeV\r\nLadung \t\t: q = +e\r\nSpezifischeLadung\t: q/m = 9,578 * 10^7 As/kg");
+		dtrpnelektronRuhemasse_1.setForeground(Color.ORANGE);
+		dtrpnelektronRuhemasse_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		dtrpnelektronRuhemasse_1.setEditable(false);
+		dtrpnelektronRuhemasse_1.setBackground(Color.GRAY);
+		dtrpnelektronRuhemasse_1.setBounds(461, 478, 436, 150);
+		contentPane.add(dtrpnelektronRuhemasse_1);
+	}
+}
