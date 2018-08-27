@@ -1,0 +1,2839 @@
+package java2enterprise_mainFrame;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class MatrixRechner extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField tfGrad;
+	private JTextField tfA11;
+	private JTextField tfA12;
+	private JTextField tfA13;
+	private JTextField tfA21;
+	private JTextField tfA22;
+	private JTextField tfA23;
+	private JTextField tfA31;
+	private JTextField tfA32;
+	private JTextField tfA33;
+	private JTextField tfA14;
+	private JTextField tfA24;
+	private JTextField tfA34;
+	private JTextField tfA41;
+	private JTextField tfA42;
+	private JTextField tfA43;
+	private JTextField tfA44;
+	private JTextField tfA51;
+	private JTextField tfA15;
+	private JTextField tfA54;
+	private JTextField tfA45;
+	private JTextField tfA25;
+	private JTextField tfA35;
+	private JTextField tfA52;
+	private JTextField tfA53;
+	private JTextField tfA55;
+	private JTextField tfB11;
+	private JTextField tfB12;
+	private JTextField tfB13;
+	private JTextField tfB14;
+	private JTextField tfB15;
+	private JTextField tfB21;
+	private JTextField tfB22;
+	private JTextField tfB23;
+	private JTextField tfB24;
+	private JTextField tfB25;
+	private JTextField tfB31;
+	private JTextField tfB32;
+	private JTextField tfB33;
+	private JTextField tfB34;
+	private JTextField tfB35;
+	private JTextField tfB41;
+	private JTextField tfB42;
+	private JTextField tfB43;
+	private JTextField tfB44;
+	private JTextField tfB45;
+	private JTextField tfB51;
+	private JTextField tfB52;
+	private JTextField tfB53;
+	private JTextField tfB54;
+	private JTextField tfB55;
+	private JLabel lblDeterminanteDetb;
+	private JButton btnRechnen;
+	private JButton btnClear;
+	private JTextField tfDetA;
+	private JTextField tfDetB;
+	private JButton btnAplusB;
+	private JButton btnAminusB;
+	private JTextField tfE55;
+	private JTextField tfE54;
+	private JTextField tfE53;
+	private JTextField tfE52;
+	private JTextField tfE51;
+	private JTextField tfE45;
+	private JTextField tfE44;
+	private JTextField tfE43;
+	private JTextField tfE42;
+	private JTextField tfE41;
+	private JTextField tfE35;
+	private JTextField tfE34;
+	private JTextField tfE33;
+	private JTextField tfE32;
+	private JTextField tfE31;
+	private JTextField tfE25;
+	private JTextField tfE24;
+	private JTextField tfE23;
+	private JTextField tfE22;
+	private JTextField tfE21;
+	private JTextField tfE15;
+	private JTextField tfE14;
+	private JTextField tfE13;
+	private JTextField tfE12;
+	private JTextField tfE11;
+	private JLabel lblErgebnis;
+	
+	private double a11, a12, a13, a14, a15;
+	private double a21, a22, a23, a24, a25;
+	private double a31, a32, a33, a34, a35;
+	private double a41, a42, a43, a44, a45;
+	private double a51, a52, a53, a54, a55;
+	
+	private double b11, b12, b13, b14, b15;
+	private double b21, b22, b23, b24, b25;
+	private double b31, b32, b33, b34, b35;
+	private double b41, b42, b43, b44, b45;
+	private double b51, b52, b53, b54, b55;
+	
+	private double e11, e12, e13, e14, e15;
+	private double e21, e22, e23, e24, e25;
+	private double e31, e32, e33, e34, e35;
+	private double e41, e42, e43, e44, e45;
+	private double e51, e52, e53, e54, e55;
+	
+	private int grad;
+
+	public MatrixRechner() {
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\MuhammetEsmer\\Pictures\\Lexi_Logo.png"));
+		setTitle("MatrixRechner (Beta)");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 690, 470);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Geben Sie den Grad der Matrix ein:");
+		lblNewLabel.setBackground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel.setBounds(10, 10, 300, 30);
+		contentPane.add(lblNewLabel);
+		
+		tfA11 = new JTextField();
+		tfA11.setBackground(Color.ORANGE);
+		tfA11.setBounds(10, 115, 30, 30);
+		contentPane.add(tfA11);
+		tfA11.setColumns(10);
+		
+		tfA12 = new JTextField();
+		tfA12.setBackground(Color.ORANGE);
+		tfA12.setColumns(10);
+		tfA12.setBounds(50, 115, 30, 30);
+		contentPane.add(tfA12);
+		
+		tfA13 = new JTextField();
+		tfA13.setBackground(Color.ORANGE);
+		tfA13.setColumns(10);
+		tfA13.setBounds(90, 115, 30, 30);
+		contentPane.add(tfA13);
+		
+		tfA21 = new JTextField();
+		tfA21.setBackground(Color.ORANGE);
+		tfA21.setColumns(10);
+		tfA21.setBounds(10, 156, 30, 30);
+		contentPane.add(tfA21);
+		
+		tfA22 = new JTextField();
+		tfA22.setBackground(Color.ORANGE);
+		tfA22.setColumns(10);
+		tfA22.setBounds(50, 156, 30, 30);
+		contentPane.add(tfA22);
+		
+		tfA23 = new JTextField();
+		tfA23.setBackground(Color.ORANGE);
+		tfA23.setColumns(10);
+		tfA23.setBounds(90, 156, 30, 30);
+		contentPane.add(tfA23);
+		
+		tfA31 = new JTextField();
+		tfA31.setBackground(Color.ORANGE);
+		tfA31.setColumns(10);
+		tfA31.setBounds(10, 197, 30, 30);
+		contentPane.add(tfA31);
+		
+		tfA32 = new JTextField();
+		tfA32.setBackground(Color.ORANGE);
+		tfA32.setColumns(10);
+		tfA32.setBounds(50, 197, 30, 30);
+		contentPane.add(tfA32);
+		
+		tfA33 = new JTextField();
+		tfA33.setBackground(Color.ORANGE);
+		tfA33.setColumns(10);
+		tfA33.setBounds(90, 197, 30, 30);
+		contentPane.add(tfA33);
+		
+		tfA14 = new JTextField();
+		tfA14.setBackground(Color.ORANGE);
+		tfA14.setColumns(10);
+		tfA14.setBounds(130, 115, 30, 30);
+		contentPane.add(tfA14);
+		
+		tfA24 = new JTextField();
+		tfA24.setBackground(Color.ORANGE);
+		tfA24.setColumns(10);
+		tfA24.setBounds(130, 156, 30, 30);
+		contentPane.add(tfA24);
+		
+		tfA34 = new JTextField();
+		tfA34.setBackground(Color.ORANGE);
+		tfA34.setColumns(10);
+		tfA34.setBounds(130, 197, 30, 30);
+		contentPane.add(tfA34);
+		
+		tfA41 = new JTextField();
+		tfA41.setBackground(Color.ORANGE);
+		tfA41.setColumns(10);
+		tfA41.setBounds(10, 238, 30, 30);
+		contentPane.add(tfA41);
+		
+		tfA42 = new JTextField();
+		tfA42.setBackground(Color.ORANGE);
+		tfA42.setColumns(10);
+		tfA42.setBounds(50, 238, 30, 30);
+		contentPane.add(tfA42);
+		
+		tfA43 = new JTextField();
+		tfA43.setBackground(Color.ORANGE);
+		tfA43.setColumns(10);
+		tfA43.setBounds(90, 238, 30, 30);
+		contentPane.add(tfA43);
+		
+		tfA44 = new JTextField();
+		tfA44.setBackground(Color.ORANGE);
+		tfA44.setColumns(10);
+		tfA44.setBounds(130, 238, 30, 30);
+		contentPane.add(tfA44);
+		
+		tfA51 = new JTextField();
+		tfA51.setBackground(Color.ORANGE);
+		tfA51.setColumns(10);
+		tfA51.setBounds(10, 279, 30, 30);
+		contentPane.add(tfA51);
+		
+		tfA15 = new JTextField();
+		tfA15.setBackground(Color.ORANGE);
+		tfA15.setColumns(10);
+		tfA15.setBounds(170, 115, 30, 30);
+		contentPane.add(tfA15);
+		
+		tfA54 = new JTextField();
+		tfA54.setBackground(Color.ORANGE);
+		tfA54.setColumns(10);
+		tfA54.setBounds(130, 279, 30, 30);
+		contentPane.add(tfA54);
+		
+		tfA45 = new JTextField();
+		tfA45.setBackground(Color.ORANGE);
+		tfA45.setColumns(10);
+		tfA45.setBounds(170, 238, 30, 30);
+		contentPane.add(tfA45);
+		
+		tfA25 = new JTextField();
+		tfA25.setBackground(Color.ORANGE);
+		tfA25.setColumns(10);
+		tfA25.setBounds(170, 156, 30, 30);
+		contentPane.add(tfA25);
+		
+		tfA35 = new JTextField();
+		tfA35.setBackground(Color.ORANGE);
+		tfA35.setColumns(10);
+		tfA35.setBounds(170, 197, 30, 30);
+		contentPane.add(tfA35);
+		
+		tfA52 = new JTextField();
+		tfA52.setBackground(Color.ORANGE);
+		tfA52.setColumns(10);
+		tfA52.setBounds(50, 279, 30, 30);
+		contentPane.add(tfA52);
+		
+		tfA53 = new JTextField();
+		tfA53.setBackground(Color.ORANGE);
+		tfA53.setColumns(10);
+		tfA53.setBounds(90, 279, 30, 30);
+		contentPane.add(tfA53);
+		
+		tfA55 = new JTextField();
+		tfA55.setBackground(Color.ORANGE);
+		tfA55.setColumns(10);
+		tfA55.setBounds(170, 279, 30, 30);
+		contentPane.add(tfA55);
+		
+		JLabel lblNewLabel_1 = new JLabel("Determinante det(A) :");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(10, 320, 300, 30);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("         Matrix A");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_2.setBounds(10, 51, 190, 53);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblMatrixB = new JLabel("        Matrix B");
+		lblMatrixB.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblMatrixB.setBounds(240, 51, 190, 53);
+		contentPane.add(lblMatrixB);
+		
+		tfB11 = new JTextField();
+		tfB11.setBackground(Color.ORANGE);
+		tfB11.setColumns(10);
+		tfB11.setBounds(240, 115, 30, 30);
+		contentPane.add(tfB11);
+		
+		tfB12 = new JTextField();
+		tfB12.setBackground(Color.ORANGE);
+		tfB12.setColumns(10);
+		tfB12.setBounds(280, 115, 30, 30);
+		contentPane.add(tfB12);
+		
+		tfB13 = new JTextField();
+		tfB13.setBackground(Color.ORANGE);
+		tfB13.setColumns(10);
+		tfB13.setBounds(320, 115, 30, 30);
+		contentPane.add(tfB13);
+		
+		tfB14 = new JTextField();
+		tfB14.setBackground(Color.ORANGE);
+		tfB14.setColumns(10);
+		tfB14.setBounds(360, 115, 30, 30);
+		contentPane.add(tfB14);
+		
+		tfB15 = new JTextField();
+		tfB15.setBackground(Color.ORANGE);
+		tfB15.setColumns(10);
+		tfB15.setBounds(400, 115, 30, 30);
+		contentPane.add(tfB15);
+		
+		tfB21 = new JTextField();
+		tfB21.setBackground(Color.ORANGE);
+		tfB21.setColumns(10);
+		tfB21.setBounds(240, 156, 30, 30);
+		contentPane.add(tfB21);
+		
+		tfB22 = new JTextField();
+		tfB22.setBackground(Color.ORANGE);
+		tfB22.setColumns(10);
+		tfB22.setBounds(280, 156, 30, 30);
+		contentPane.add(tfB22);
+		
+		tfB23 = new JTextField();
+		tfB23.setBackground(Color.ORANGE);
+		tfB23.setColumns(10);
+		tfB23.setBounds(320, 156, 30, 30);
+		contentPane.add(tfB23);
+		
+		tfB24 = new JTextField();
+		tfB24.setBackground(Color.ORANGE);
+		tfB24.setColumns(10);
+		tfB24.setBounds(360, 156, 30, 30);
+		contentPane.add(tfB24);
+		
+		tfB25 = new JTextField();
+		tfB25.setBackground(Color.ORANGE);
+		tfB25.setColumns(10);
+		tfB25.setBounds(400, 156, 30, 30);
+		contentPane.add(tfB25);
+		
+		tfB31 = new JTextField();
+		tfB31.setBackground(Color.ORANGE);
+		tfB31.setColumns(10);
+		tfB31.setBounds(240, 197, 30, 30);
+		contentPane.add(tfB31);
+		
+		tfB32 = new JTextField();
+		tfB32.setBackground(Color.ORANGE);
+		tfB32.setColumns(10);
+		tfB32.setBounds(280, 197, 30, 30);
+		contentPane.add(tfB32);
+		
+		tfB33 = new JTextField();
+		tfB33.setBackground(Color.ORANGE);
+		tfB33.setColumns(10);
+		tfB33.setBounds(320, 197, 30, 30);
+		contentPane.add(tfB33);
+		
+		tfB34 = new JTextField();
+		tfB34.setBackground(Color.ORANGE);
+		tfB34.setColumns(10);
+		tfB34.setBounds(360, 197, 30, 30);
+		contentPane.add(tfB34);
+		
+		tfB35 = new JTextField();
+		tfB35.setBackground(Color.ORANGE);
+		tfB35.setColumns(10);
+		tfB35.setBounds(400, 197, 30, 30);
+		contentPane.add(tfB35);
+		
+		tfB41 = new JTextField();
+		tfB41.setBackground(Color.ORANGE);
+		tfB41.setColumns(10);
+		tfB41.setBounds(240, 238, 30, 30);
+		contentPane.add(tfB41);
+		
+		tfB42 = new JTextField();
+		tfB42.setBackground(Color.ORANGE);
+		tfB42.setColumns(10);
+		tfB42.setBounds(280, 238, 30, 30);
+		contentPane.add(tfB42);
+		
+		tfB43 = new JTextField();
+		tfB43.setBackground(Color.ORANGE);
+		tfB43.setColumns(10);
+		tfB43.setBounds(320, 238, 30, 30);
+		contentPane.add(tfB43);
+		
+		tfB44 = new JTextField();
+		tfB44.setBackground(Color.ORANGE);
+		tfB44.setColumns(10);
+		tfB44.setBounds(360, 238, 30, 30);
+		contentPane.add(tfB44);
+		
+		tfB45 = new JTextField();
+		tfB45.setBackground(Color.ORANGE);
+		tfB45.setColumns(10);
+		tfB45.setBounds(400, 238, 30, 30);
+		contentPane.add(tfB45);
+		
+		tfB51 = new JTextField();
+		tfB51.setBackground(Color.ORANGE);
+		tfB51.setColumns(10);
+		tfB51.setBounds(240, 279, 30, 30);
+		contentPane.add(tfB51);
+		
+		tfB52 = new JTextField();
+		tfB52.setBackground(Color.ORANGE);
+		tfB52.setColumns(10);
+		tfB52.setBounds(280, 279, 30, 30);
+		contentPane.add(tfB52);
+		
+		tfB53 = new JTextField();
+		tfB53.setBackground(Color.ORANGE);
+		tfB53.setColumns(10);
+		tfB53.setBounds(320, 279, 30, 30);
+		contentPane.add(tfB53);
+		
+		tfB54 = new JTextField();
+		tfB54.setBackground(Color.ORANGE);
+		tfB54.setColumns(10);
+		tfB54.setBounds(360, 279, 30, 30);
+		contentPane.add(tfB54);
+		
+		tfB55 = new JTextField();
+		tfB55.setBackground(Color.ORANGE);
+		tfB55.setColumns(10);
+		tfB55.setBounds(400, 279, 30, 30);
+		contentPane.add(tfB55);
+		
+		lblDeterminanteDetb = new JLabel("Determinante det(B) :");
+		lblDeterminanteDetb.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblDeterminanteDetb.setBounds(10, 361, 300, 30);
+		contentPane.add(lblDeterminanteDetb);
+		
+		btnRechnen = new JButton("Rechnen");
+		btnRechnen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(grad == 1) {
+					double a = Double.parseDouble(tfA11.getText());
+					tfDetA.setText(Double.toString(a));
+					double a1 = Double.parseDouble(tfB11.getText());
+					tfDetB.setText(Double.toString(a1));
+				}
+				else if(grad == 2) {
+					double a, b, c, d, erg;
+					a = Double.parseDouble(tfA11.getText());
+					b = Double.parseDouble(tfA12.getText());
+					c = Double.parseDouble(tfA21.getText());
+					d = Double.parseDouble(tfA22.getText());
+					erg = (a*d) - (b*c);
+					tfDetA.setText(Double.toString(erg));
+					
+					double a1, b1, c1, d1, erg1;
+					a1 = Double.parseDouble(tfB11.getText());
+					b1 = Double.parseDouble(tfB12.getText());
+					c1 = Double.parseDouble(tfB21.getText());
+					d1 = Double.parseDouble(tfB22.getText());
+					erg1 = (a1*d1) - (b1*c1);
+					tfDetB.setText(Double.toString(erg1));
+				}
+				else if(grad == 3) {
+					double a, b, c, d, e, f, g, h, i, erg;
+					a = Double.parseDouble(tfA11.getText());
+					b = Double.parseDouble(tfA12.getText());
+					c = Double.parseDouble(tfA13.getText());
+					d = Double.parseDouble(tfA21.getText());
+					e = Double.parseDouble(tfA22.getText());
+					f = Double.parseDouble(tfA23.getText());
+					g = Double.parseDouble(tfA31.getText());
+					h = Double.parseDouble(tfA32.getText());
+					i = Double.parseDouble(tfA33.getText());
+					erg = a * ((e*i)-(h*f)) -d*((b*i) -(h*c)) +g*((b*f) - (e*c));
+					tfDetA.setText(Double.toString(erg));
+					
+					double a1, b1, c1, d1, e1, f1, g1, h1, i1, erg1;
+					a1 = Double.parseDouble(tfB11.getText());
+					b1 = Double.parseDouble(tfB12.getText());
+					c1 = Double.parseDouble(tfB13.getText());
+					d1 = Double.parseDouble(tfB21.getText());
+					e1 = Double.parseDouble(tfB22.getText());
+					f1 = Double.parseDouble(tfB23.getText());
+					g1 = Double.parseDouble(tfB31.getText());
+					h1 = Double.parseDouble(tfB32.getText());
+					i1 = Double.parseDouble(tfB33.getText());
+					erg1 = a1 * ((e1*i1)-(h1*f1)) -d1*((b1*i1) -(h1*c1)) +g1*((b1*f1) - (e1*c1));
+					tfDetB.setText(Double.toString(erg1));
+				}
+				else if(grad == 4) {
+					double a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, erg, m1, m2, m3, m4;
+					a = Double.parseDouble(tfA11.getText());
+					b = Double.parseDouble(tfA12.getText());
+					c = Double.parseDouble(tfA13.getText());
+					d = Double.parseDouble(tfA14.getText());
+					e = Double.parseDouble(tfA21.getText());
+					f = Double.parseDouble(tfA22.getText());
+					g = Double.parseDouble(tfA23.getText());
+					h = Double.parseDouble(tfA24.getText());
+					i = Double.parseDouble(tfA31.getText());
+					j = Double.parseDouble(tfA32.getText());
+					k = Double.parseDouble(tfA33.getText());
+					l = Double.parseDouble(tfA34.getText());
+					m = Double.parseDouble(tfA41.getText());
+					n = Double.parseDouble(tfA42.getText());
+					o = Double.parseDouble(tfA43.getText());
+					p = Double.parseDouble(tfA44.getText());
+					m1 = f*((k*p)-(l*o)) -j*((g*p)-(o*h)) +n*((g*l)-(k*h));
+					m2 = b*((k*p)-(o*l)) -j*((c*p)-(o*d)) +n*((c*l)-(k*d));
+					m3 = b*((g*p)-(o*h)) -f*((c*p)-(o*d)) +n*((c*h)-(g*d));
+					m4 = b*((g*l)-(k*h)) -f*((c*l)-(k*d)) +j*((c*h)-(g*d));
+					erg = +a*m1 -e*m2 +i*m3 -m*m4;
+					tfDetA.setText(Double.toString(erg));
+					
+					double a1, b1, c1, d1, e1, f1, g1, h1, i1, j1, k1, l1, mc1, n1, o1, p1, erg1, m11, m21, m31, m41;
+					a1 = Double.parseDouble(tfB11.getText());
+					b1 = Double.parseDouble(tfB12.getText());
+					c1 = Double.parseDouble(tfB13.getText());
+					d1 = Double.parseDouble(tfB14.getText());
+					e1 = Double.parseDouble(tfB21.getText());
+					f1 = Double.parseDouble(tfB22.getText());
+					g1 = Double.parseDouble(tfB23.getText());
+					h1 = Double.parseDouble(tfB24.getText());
+					i1 = Double.parseDouble(tfB31.getText());
+					j1 = Double.parseDouble(tfB32.getText());
+					k1 = Double.parseDouble(tfB33.getText());
+					l1 = Double.parseDouble(tfB34.getText());
+					mc1 = Double.parseDouble(tfB41.getText());
+					n1 = Double.parseDouble(tfB42.getText());
+					o1 = Double.parseDouble(tfB43.getText());
+					p1 = Double.parseDouble(tfB44.getText());
+					m11 = f1*((k1*p1)-(l1*o1)) -j1*((g1*p1)-(o1*h1)) +n1*((g1*l1)-(k1*h1));
+					m21 = b1*((k1*p1)-(o1*l1)) -j1*((c1*p1)-(o1*d1)) +n1*((c1*l1)-(k1*d1));
+					m31 = b1*((g1*p1)-(o1*h1)) -f1*((c1*p1)-(o1*d1)) +n1*((c1*h1)-(g1*d1));
+					m41 = b1*((g1*l1)-(k1*h1)) -f1*((c1*l1)-(k1*d1)) +j1*((c1*h1)-(g1*d1));
+					erg1 = +a1*m11 -e1*m21 +i1*m31 -mc1*m41;
+					tfDetB.setText(Double.toString(erg1));
+				}
+				else if(grad == 5) {
+					double a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, m1, m2, m3, m4, m5, erg;
+					a = Double.parseDouble(tfA11.getText());
+					b = Double.parseDouble(tfA12.getText());
+					c = Double.parseDouble(tfA13.getText());
+					d = Double.parseDouble(tfA14.getText());
+					e = Double.parseDouble(tfA15.getText());
+					f = Double.parseDouble(tfA21.getText());
+					g = Double.parseDouble(tfA22.getText());
+					h = Double.parseDouble(tfA23.getText());
+					i = Double.parseDouble(tfA24.getText());
+					j = Double.parseDouble(tfA25.getText());
+					k = Double.parseDouble(tfA31.getText());
+					l = Double.parseDouble(tfA32.getText());
+					m = Double.parseDouble(tfA33.getText());
+					n = Double.parseDouble(tfA34.getText());
+					o = Double.parseDouble(tfA35.getText());
+					p = Double.parseDouble(tfA41.getText());
+					q = Double.parseDouble(tfA42.getText());
+					r = Double.parseDouble(tfA43.getText());
+					s = Double.parseDouble(tfA44.getText());
+					t = Double.parseDouble(tfA45.getText());
+					u = Double.parseDouble(tfA51.getText());
+					v = Double.parseDouble(tfA52.getText());
+					w = Double.parseDouble(tfA53.getText());
+					x = Double.parseDouble(tfA54.getText());
+					y = Double.parseDouble(tfA55.getText());
+					m1 = g*(m*((s*y)-(x*t))-r*((n*y)-(x*o))+w*((n*t)-(s*o)))-l*(h*((s*y)-(x*t))-r*((i*y)-(x*j))+w*((i*t)-(s*j)))+q*(h*((n*y)-(x*o))-m*((i*y)-(x*j))+w*((i*o)-(n*j))-v*(h*((n*t)-(s*o))-m*((i*t)-(j*s))+r*((i*o)-(n*j))));
+					m2 = b*(m*((s*y)-(x*t))-r*((n*y)-(j*s))+r*((i*o)-(n*j)))-l*(c*((n*y)-(x*o))-m*((d*y)-(x*e))+w*((d*o)-(n*e)))+q*(c*((n*y)-(x*o))-m*((d*y)-(x*e))+w*((d*o)-(n*e))-v*(c*((n*t)-(s*o))-m*((d*t)-(s*e))+r*((d*o)-(n*e))));
+					m3 = b*(h*((s*y)-(x*t))-r*((i*y)-(j*x))+w*((i*t)-(s*j)))-g*(c*((s*y)-(x*t))-r*((d*y)-(x*e))+w*((d*t)-(s*e)))+q*(c*((i*y)-(j*x))-h*((d*y)-(x*e))+w*((d*j)-(i*e))-v*(c*((i*t)-(s*j))-h*((d*t)-(s*e))+r*((d*j)-(i*e))));
+					m4 = b*(h*((n*y)-(x*o))-m*((i*y)-(j*x))+w*((i*o)-(n*j)))-g*(c*((n*y)-(x*o))-m*((d*y)-(x*e))+w*((d*o)-(n*e)))+l*(c*((i*y)-(x*j))-h*((d*y)-(x*e))+w*((d*j)-(i*e))-v*(c*((i*o)-(n*j))-h*((d*o)-(n*e))+m*((d*j)-(i*e))));
+					m5 = b*(h*((n*t)-(s*o))-m*((i*t)-(j*s))+r*((i*o)-(n*j)))-g*(c*((n*t)-(s*o))-m*((d*t)-(s*e))+r*((d*o)-(n*e)))+l*(c*((i*t)-(j*s))-h*((d*t)-(s*e))+r*((d*j)-(i*e))-q*(c*((i*o)-(j*n))-h*((d*o)-(n*e))+m*((d*j)-(i*e))));
+					erg = a*m1 -f*m2 +k*m3 -p*m4 +u*m5;
+					tfDetA.setText(Double.toString(erg));
+					
+					double a1, b1, c1, d1, e1, f1, g1, h1, i1, j1, k1, l1, mc1, n1, o1, p1, q1, r1, s1, t1, u1, v1, w1, x1, y1, erg1, m11, m21, m31, m41, m51;
+					a1 = Double.parseDouble(tfB11.getText());
+					b1 = Double.parseDouble(tfB12.getText());
+					c1 = Double.parseDouble(tfB13.getText());
+					d1 = Double.parseDouble(tfB14.getText());
+					e1 = Double.parseDouble(tfB15.getText());
+					f1 = Double.parseDouble(tfB21.getText());
+					g1 = Double.parseDouble(tfB22.getText());
+					h1 = Double.parseDouble(tfB23.getText());
+					i1 = Double.parseDouble(tfB24.getText());
+					j1 = Double.parseDouble(tfB25.getText());
+					k1 = Double.parseDouble(tfB31.getText());
+					l1 = Double.parseDouble(tfB32.getText());
+					mc1 = Double.parseDouble(tfB33.getText());
+					n1 = Double.parseDouble(tfB34.getText());
+					o1 = Double.parseDouble(tfB35.getText());
+					p1 = Double.parseDouble(tfB41.getText());
+					q1 = Double.parseDouble(tfB42.getText());
+					r1 = Double.parseDouble(tfB43.getText());
+					s1 = Double.parseDouble(tfB44.getText());
+					t1 = Double.parseDouble(tfB45.getText());
+					u1 = Double.parseDouble(tfB51.getText());
+					v1 = Double.parseDouble(tfB52.getText());
+					w1 = Double.parseDouble(tfB53.getText());
+					x1 = Double.parseDouble(tfB54.getText());
+					y1 = Double.parseDouble(tfB55.getText());
+					m11 = g1*(mc1*((s1*y1)-(x1*t1))-r1*((n1*y1)-(x1*o1))+w1*((n1*t1)-(s1*o1)))-l1*(h1*((s1*y1)-(x1*t1))-r1*((i1*y1)-(x1*j1))+w1*((i1*t1)-(s1*j1)))+q1*(h1*((n1*y1)-(x1*o1))-mc1*((i1*y1)-(x1*j1))+w1*((i1*o1)-(n1*j1))-v1*(h1*((n1*t1)-(s1*o1))-mc1*((i1*t1)-(j1*s1))+r1*((i1*o1)-(n1*j1))));
+					m21 = b1*(mc1*((s1*y1)-(x1*t1))-r1*((n1*y1)-(j1*s1))+r1*((i1*o1)-(n1*j1)))-l1*(c1*((n1*y1)-(x1*o1))-mc1*((d1*y1)-(x1*e1))+w1*((d1*o1)-(n1*e1)))+q1*(c1*((n1*y1)-(x1*o1))-mc1*((d1*y1)-(x1*e1))+w1*((d1*o1)-(n1*e1))-v1*(c1*((n1*t1)-(s1*o1))-mc1*((d1*t1)-(s1*e1))+r1*((d1*o1)-(n1*e1))));
+					m31 = b1*(h1*((s1*y1)-(x1*t1))-r1*((i1*y1)-(j1*x1))+w1*((i1*t1)-(s1*j1)))-g1*(c1*((s1*y1)-(x1*t1))-r1*((d1*y1)-(x1*e1))+w1*((d1*t1)-(s1*e1)))+q1*(c1*((i1*y1)-(j1*x1))-h1*((d1*y1)-(x1*e1))+w1*((d1*j1)-(i1*e1))-v1*(c1*((i1*t1)-(s1*j1))-h1*((d1*t1)-(s1*e1))+r1*((d1*j1)-(i1*e1))));
+					m41 = b1*(h1*((n1*y1)-(x1*o1))-mc1*((i1*y1)-(j1*x1))+w1*((i1*o1)-(n1*j1)))-g1*(c1*((n1*y1)-(x1*o1))-mc1*((d1*y1)-(x1*e1))+w1*((d1*o1)-(n1*e1)))+l1*(c1*((i1*y1)-(x1*j1))-h1*((d1*y1)-(x1*e1))+w1*((d1*j1)-(i1*e1))-v1*(c1*((i1*o1)-(n1*j1))-h1*((d1*o1)-(n1*e1))+mc1*((d1*j1)-(i1*e1))));
+					m51 = b1*(h1*((n1*t1)-(s1*o1))-mc1*((i1*t1)-(j1*s1))+r1*((i1*o1)-(n1*j1)))-g1*(c1*((n1*t1)-(s1*o1))-mc1*((d1*t1)-(s1*e1))+r1*((d1*o1)-(n1*e1)))+l1*(c1*((i1*t1)-(j1*s1))-h1*((d1*t1)-(s1*e1))+r1*((d1*j1)-(i1*e1))-q1*(c1*((i1*o1)-(j1*n1))-h1*((d1*o1)-(n1*e1))+mc1*((d1*j1)-(i1*e1))));
+					erg1 = a1*m11 -f1*m21 +k1*m31 -p1*m41 +u1*m51;
+					tfDetB.setText(Double.toString(erg1));
+				}
+			}
+		});
+		btnRechnen.setBackground(Color.ORANGE);
+		btnRechnen.setBounds(10, 407, 190, 23);
+		contentPane.add(btnRechnen);
+		
+		btnClear = new JButton("Clear");
+		btnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tfA11.setText("");
+				tfA12.setText("");
+				tfA13.setText("");
+				tfA14.setText("");
+				tfA15.setText("");
+				tfA21.setText("");
+				tfA22.setText("");
+				tfA23.setText("");
+				tfA24.setText("");
+				tfA25.setText("");
+				tfA31.setText("");
+				tfA32.setText("");
+				tfA33.setText("");
+				tfA34.setText("");
+				tfA35.setText("");
+				tfA41.setText("");
+				tfA42.setText("");
+				tfA43.setText("");
+				tfA44.setText("");
+				tfA45.setText("");
+				tfA51.setText("");
+				tfA52.setText("");
+				tfA53.setText("");
+				tfA54.setText("");
+				tfA55.setText("");
+				
+				tfB11.setText("");
+				tfB12.setText("");
+				tfB13.setText("");
+				tfB14.setText("");
+				tfB15.setText("");
+				tfB21.setText("");
+				tfB22.setText("");
+				tfB23.setText("");
+				tfB24.setText("");
+				tfB25.setText("");
+				tfB31.setText("");
+				tfB32.setText("");
+				tfB33.setText("");
+				tfB34.setText("");
+				tfB35.setText("");
+				tfB41.setText("");
+				tfB42.setText("");
+				tfB43.setText("");
+				tfB44.setText("");
+				tfB45.setText("");
+				tfB51.setText("");
+				tfB52.setText("");
+				tfB53.setText("");
+				tfB54.setText("");
+				tfB55.setText("");
+				
+				tfE11.setText("");
+				tfE12.setText("");
+				tfE13.setText("");
+				tfE14.setText("");
+				tfE15.setText("");
+				tfE21.setText("");
+				tfE22.setText("");
+				tfE23.setText("");
+				tfE24.setText("");
+				tfE25.setText("");
+				tfE31.setText("");
+				tfE32.setText("");
+				tfE33.setText("");
+				tfE34.setText("");
+				tfE35.setText("");
+				tfE41.setText("");
+				tfE42.setText("");
+				tfE43.setText("");
+				tfE44.setText("");
+				tfE45.setText("");
+				tfE51.setText("");
+				tfE52.setText("");
+				tfE53.setText("");
+				tfE54.setText("");
+				tfE55.setText("");
+				
+				tfDetA.setText("");
+				tfDetB.setText("");
+				tfGrad.setText("");
+			}
+		});
+		btnClear.setBackground(Color.ORANGE);
+		btnClear.setBounds(240, 407, 190, 23);
+		contentPane.add(btnClear);
+		
+		tfDetA = new JTextField();
+		tfDetA.setEditable(false);
+		tfDetA.setBackground(Color.ORANGE);
+		tfDetA.setColumns(10);
+		tfDetA.setBounds(350, 320, 80, 30);
+		contentPane.add(tfDetA);
+		
+		tfDetB = new JTextField();
+		tfDetB.setEditable(false);
+		tfDetB.setBackground(Color.ORANGE);
+		tfDetB.setColumns(10);
+		tfDetB.setBounds(350, 365, 80, 30);
+		contentPane.add(tfDetB);
+		
+		btnAplusB = new JButton("A+B");
+		btnAplusB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {	
+				if(grad == 1) {
+					a11 = Double.parseDouble(tfA11.getText());
+					b11 = Double.parseDouble(tfB11.getText());
+					e11 = a11 + b11;
+					tfE11.setText(Double.toString(e11));
+				}
+				else if(grad == 2) {
+					a11 = Double.parseDouble(tfA11.getText());
+					a12 = Double.parseDouble(tfA12.getText());
+					a21 = Double.parseDouble(tfA21.getText());
+					a22 = Double.parseDouble(tfA22.getText());
+					b11 = Double.parseDouble(tfB11.getText());
+					b12 = Double.parseDouble(tfB12.getText());
+					b21 = Double.parseDouble(tfB21.getText());
+					b22 = Double.parseDouble(tfB22.getText());
+					
+					e11 = a11 + b11;
+					e12 = a12 + b12;
+					e21 = a21 + b21;
+					e22 = a22 + b22;
+					
+					tfE11.setText(Double.toString(e11));
+					tfE12.setText(Double.toString(e12));
+					tfE21.setText(Double.toString(e21));
+					tfE22.setText(Double.toString(e22));
+				}
+				else if(grad == 3) {
+					a11 = Double.parseDouble(tfA11.getText());
+					a12 = Double.parseDouble(tfA12.getText());
+					a13 = Double.parseDouble(tfA13.getText());
+					a21 = Double.parseDouble(tfA21.getText());
+					a22 = Double.parseDouble(tfA22.getText());
+					a23 = Double.parseDouble(tfA23.getText());
+					a31 = Double.parseDouble(tfA31.getText());
+					a32 = Double.parseDouble(tfA32.getText());
+					a33 = Double.parseDouble(tfA33.getText());
+					
+					b11 = Double.parseDouble(tfB11.getText());
+					b12 = Double.parseDouble(tfB12.getText());
+					b13 = Double.parseDouble(tfB13.getText());
+					b21 = Double.parseDouble(tfB21.getText());
+					b22 = Double.parseDouble(tfB22.getText());
+					b23 = Double.parseDouble(tfB23.getText());
+					b31 = Double.parseDouble(tfB31.getText());
+					b32 = Double.parseDouble(tfB32.getText());
+					b33 = Double.parseDouble(tfB33.getText());
+					
+					e11 = a11 + b11;
+					e12 = a12 + b12;
+					e13 = a13 + b13;
+					
+					e21 = a21 + b21;
+					e22 = a22 + b22;
+					e23 = a23 + b23;
+					
+					e31 = a31 + b31;
+					e32 = a32 + b32;
+					e33 = a33 + b33;
+					
+					tfE11.setText(Double.toString(e11));
+					tfE12.setText(Double.toString(e12));
+					tfE13.setText(Double.toString(e13));
+					
+					tfE21.setText(Double.toString(e21));
+					tfE22.setText(Double.toString(e22));
+					tfE23.setText(Double.toString(e23));
+					
+					tfE31.setText(Double.toString(e31));
+					tfE32.setText(Double.toString(e32));
+					tfE33.setText(Double.toString(e33));
+				}
+				else if(grad == 4) {
+					a11 = Double.parseDouble(tfA11.getText());
+					a12 = Double.parseDouble(tfA12.getText());
+					a13 = Double.parseDouble(tfA13.getText());
+					a14 = Double.parseDouble(tfA14.getText());
+					a21 = Double.parseDouble(tfA21.getText());
+					a22 = Double.parseDouble(tfA22.getText());
+					a23 = Double.parseDouble(tfA23.getText());
+					a24 = Double.parseDouble(tfA24.getText());
+					a31 = Double.parseDouble(tfA31.getText());
+					a32 = Double.parseDouble(tfA32.getText());
+					a33 = Double.parseDouble(tfA33.getText());
+					a34 = Double.parseDouble(tfA34.getText());
+					a41 = Double.parseDouble(tfA41.getText());
+					a42 = Double.parseDouble(tfA42.getText());
+					a43 = Double.parseDouble(tfA43.getText());
+					a44 = Double.parseDouble(tfA44.getText());
+					
+					b11 = Double.parseDouble(tfB11.getText());
+					b12 = Double.parseDouble(tfB12.getText());
+					b13 = Double.parseDouble(tfB13.getText());
+					b14 = Double.parseDouble(tfB14.getText());
+					b21 = Double.parseDouble(tfB21.getText());
+					b22 = Double.parseDouble(tfB22.getText());
+					b23 = Double.parseDouble(tfB23.getText());
+					b24 = Double.parseDouble(tfB24.getText());
+					b31 = Double.parseDouble(tfB31.getText());
+					b32 = Double.parseDouble(tfB32.getText());
+					b33 = Double.parseDouble(tfB33.getText());
+					b34 = Double.parseDouble(tfB34.getText());
+					b41 = Double.parseDouble(tfB41.getText());
+					b42 = Double.parseDouble(tfB42.getText());
+					b43 = Double.parseDouble(tfB43.getText());
+					b44 = Double.parseDouble(tfB44.getText());
+					
+					e11 = a11 + b11;
+					e12 = a12 + b12;
+					e13 = a13 + b13;
+					e14 = a14 + b14;
+					
+					e21 = a21 + b21;
+					e22 = a22 + b22;
+					e23 = a23 + b23;
+					e24 = a24 + b24;
+					
+					e31 = a31 + b31;
+					e32 = a32 + b32;
+					e33 = a33 + b33;
+					e34 = a34 + b34;
+					
+					e41 = a41 + b41;
+					e42 = a42 + b42;
+					e43 = a43 + b43;
+					e44 = a44 + b44;
+					
+					tfE11.setText(Double.toString(e11));
+					tfE12.setText(Double.toString(e12));
+					tfE13.setText(Double.toString(e13));
+					tfE14.setText(Double.toString(e14));
+					
+					tfE21.setText(Double.toString(e21));
+					tfE22.setText(Double.toString(e22));
+					tfE23.setText(Double.toString(e23));
+					tfE24.setText(Double.toString(e24));
+					
+					tfE31.setText(Double.toString(e31));
+					tfE32.setText(Double.toString(e32));
+					tfE33.setText(Double.toString(e33));
+					tfE34.setText(Double.toString(e34));
+					
+					tfE41.setText(Double.toString(e41));
+					tfE42.setText(Double.toString(e42));
+					tfE43.setText(Double.toString(e43));
+					tfE44.setText(Double.toString(e44));
+				}
+				else if(grad == 5) {
+					a11 = Double.parseDouble(tfA11.getText());
+					a12 = Double.parseDouble(tfA12.getText());
+					a13 = Double.parseDouble(tfA13.getText());
+					a14 = Double.parseDouble(tfA14.getText());
+					a15 = Double.parseDouble(tfA15.getText());
+					a21 = Double.parseDouble(tfA21.getText());
+					a22 = Double.parseDouble(tfA22.getText());
+					a23 = Double.parseDouble(tfA23.getText());
+					a24 = Double.parseDouble(tfA24.getText());
+					a25 = Double.parseDouble(tfA25.getText());
+					a31 = Double.parseDouble(tfA31.getText());
+					a32 = Double.parseDouble(tfA32.getText());
+					a33 = Double.parseDouble(tfA33.getText());
+					a34 = Double.parseDouble(tfA34.getText());
+					a35 = Double.parseDouble(tfA35.getText());
+					a41 = Double.parseDouble(tfA41.getText());
+					a42 = Double.parseDouble(tfA42.getText());
+					a43 = Double.parseDouble(tfA43.getText());
+					a44 = Double.parseDouble(tfA44.getText());
+					a45 = Double.parseDouble(tfA45.getText());
+					a51 = Double.parseDouble(tfA51.getText());
+					a52 = Double.parseDouble(tfA52.getText());
+					a53 = Double.parseDouble(tfA53.getText());
+					a54 = Double.parseDouble(tfA54.getText());
+					a55 = Double.parseDouble(tfA55.getText());
+					
+					b11 = Double.parseDouble(tfB11.getText());
+					b12 = Double.parseDouble(tfB12.getText());
+					b13 = Double.parseDouble(tfB13.getText());
+					b14 = Double.parseDouble(tfB14.getText());
+					b15 = Double.parseDouble(tfB15.getText());
+					b21 = Double.parseDouble(tfB21.getText());
+					b22 = Double.parseDouble(tfB22.getText());
+					b23 = Double.parseDouble(tfB23.getText());
+					b24 = Double.parseDouble(tfB24.getText());
+					b25 = Double.parseDouble(tfB25.getText());
+					b31 = Double.parseDouble(tfB31.getText());
+					b32 = Double.parseDouble(tfB32.getText());
+					b33 = Double.parseDouble(tfB33.getText());
+					b34 = Double.parseDouble(tfB34.getText());
+					b35 = Double.parseDouble(tfB35.getText());
+					b41 = Double.parseDouble(tfB41.getText());
+					b42 = Double.parseDouble(tfB42.getText());
+					b43 = Double.parseDouble(tfB43.getText());
+					b44 = Double.parseDouble(tfB44.getText());
+					b45 = Double.parseDouble(tfB45.getText());
+					b51 = Double.parseDouble(tfB51.getText());
+					b52 = Double.parseDouble(tfB52.getText());
+					b53 = Double.parseDouble(tfB53.getText());
+					b54 = Double.parseDouble(tfB54.getText());
+					b55 = Double.parseDouble(tfB55.getText());
+					
+					e11 = a11 + b11;
+					e12 = a12 + b12;
+					e13 = a13 + b13;
+					e14 = a14 + b14;
+					e15 = a15 + b15;
+					
+					e21 = a21 + b21;
+					e22 = a22 + b22;
+					e23 = a23 + b23;
+					e24 = a24 + b24;
+					e25 = a25 + b25;
+					
+					e31 = a31 + b31;
+					e32 = a32 + b32;
+					e33 = a33 + b33;
+					e34 = a34 + b34;
+					e35 = a35 + b35;
+					
+					e41 = a41 + b41;
+					e42 = a42 + b42;
+					e43 = a43 + b43;
+					e44 = a44 + b44;
+					e45 = a45 + b45;
+					
+					e51 = a51 + b51;
+					e52 = a52 + b52;
+					e53 = a53 + b53;
+					e54 = a54 + b54;
+					e55 = a55 + b55;
+					
+					tfE11.setText(Double.toString(e11));
+					tfE12.setText(Double.toString(e12));
+					tfE13.setText(Double.toString(e13));
+					tfE14.setText(Double.toString(e14));
+					tfE15.setText(Double.toString(e15));
+					
+					tfE21.setText(Double.toString(e21));
+					tfE22.setText(Double.toString(e22));
+					tfE23.setText(Double.toString(e23));
+					tfE24.setText(Double.toString(e24));
+					tfE25.setText(Double.toString(e25));
+					
+					tfE31.setText(Double.toString(e31));
+					tfE32.setText(Double.toString(e32));
+					tfE33.setText(Double.toString(e33));
+					tfE34.setText(Double.toString(e34));
+					tfE35.setText(Double.toString(e35));
+					
+					tfE41.setText(Double.toString(e41));
+					tfE42.setText(Double.toString(e42));
+					tfE43.setText(Double.toString(e43));
+					tfE44.setText(Double.toString(e44));
+					tfE45.setText(Double.toString(e45));
+					
+					tfE51.setText(Double.toString(e51));
+					tfE52.setText(Double.toString(e52));
+					tfE53.setText(Double.toString(e53));
+					tfE54.setText(Double.toString(e54));
+					tfE55.setText(Double.toString(e55));
+				}
+			}
+		});
+		btnAplusB.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnAplusB.setBackground(Color.ORANGE);
+		btnAplusB.setBounds(482, 10, 90, 30);
+		contentPane.add(btnAplusB);
+		
+		btnAminusB = new JButton("A-B");
+		btnAminusB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(grad == 1) {
+					a11 = Double.parseDouble(tfA11.getText());
+					b11 = Double.parseDouble(tfB11.getText());
+					e11 = a11 - b11;
+					tfE11.setText(Double.toString(e11));
+				}
+				else if(grad == 2) {
+					a11 = Double.parseDouble(tfA11.getText());
+					a12 = Double.parseDouble(tfA12.getText());
+					a21 = Double.parseDouble(tfA21.getText());
+					a22 = Double.parseDouble(tfA22.getText());
+					b11 = Double.parseDouble(tfB11.getText());
+					b12 = Double.parseDouble(tfB12.getText());
+					b21 = Double.parseDouble(tfB21.getText());
+					b22 = Double.parseDouble(tfB22.getText());
+					
+					e11 = a11 - b11;
+					e12 = a12 - b12;
+					e21 = a21 - b21;
+					e22 = a22 - b22;
+					
+					tfE11.setText(Double.toString(e11));
+					tfE12.setText(Double.toString(e12));
+					tfE21.setText(Double.toString(e21));
+					tfE22.setText(Double.toString(e22));
+				}
+				else if(grad == 3) {
+					a11 = Double.parseDouble(tfA11.getText());
+					a12 = Double.parseDouble(tfA12.getText());
+					a13 = Double.parseDouble(tfA13.getText());
+					a21 = Double.parseDouble(tfA21.getText());
+					a22 = Double.parseDouble(tfA22.getText());
+					a23 = Double.parseDouble(tfA23.getText());
+					a31 = Double.parseDouble(tfA31.getText());
+					a32 = Double.parseDouble(tfA32.getText());
+					a33 = Double.parseDouble(tfA33.getText());
+					
+					b11 = Double.parseDouble(tfB11.getText());
+					b12 = Double.parseDouble(tfB12.getText());
+					b13 = Double.parseDouble(tfB13.getText());
+					b21 = Double.parseDouble(tfB21.getText());
+					b22 = Double.parseDouble(tfB22.getText());
+					b23 = Double.parseDouble(tfB23.getText());
+					b31 = Double.parseDouble(tfB31.getText());
+					b32 = Double.parseDouble(tfB32.getText());
+					b33 = Double.parseDouble(tfB33.getText());
+					
+					e11 = a11 - b11;
+					e12 = a12 - b12;
+					e13 = a13 - b13;
+					
+					e21 = a21 - b21;
+					e22 = a22 - b22;
+					e23 = a23 - b23;
+					
+					e31 = a31 - b31;
+					e32 = a32 - b32;
+					e33 = a33 - b33;
+					
+					tfE11.setText(Double.toString(e11));
+					tfE12.setText(Double.toString(e12));
+					tfE13.setText(Double.toString(e13));
+					
+					tfE21.setText(Double.toString(e21));
+					tfE22.setText(Double.toString(e22));
+					tfE23.setText(Double.toString(e23));
+					
+					tfE31.setText(Double.toString(e31));
+					tfE32.setText(Double.toString(e32));
+					tfE33.setText(Double.toString(e33));
+				}
+				else if(grad == 4) {
+					a11 = Double.parseDouble(tfA11.getText());
+					a12 = Double.parseDouble(tfA12.getText());
+					a13 = Double.parseDouble(tfA13.getText());
+					a14 = Double.parseDouble(tfA14.getText());
+					a21 = Double.parseDouble(tfA21.getText());
+					a22 = Double.parseDouble(tfA22.getText());
+					a23 = Double.parseDouble(tfA23.getText());
+					a24 = Double.parseDouble(tfA24.getText());
+					a31 = Double.parseDouble(tfA31.getText());
+					a32 = Double.parseDouble(tfA32.getText());
+					a33 = Double.parseDouble(tfA33.getText());
+					a34 = Double.parseDouble(tfA34.getText());
+					a41 = Double.parseDouble(tfA41.getText());
+					a42 = Double.parseDouble(tfA42.getText());
+					a43 = Double.parseDouble(tfA43.getText());
+					a44 = Double.parseDouble(tfA44.getText());
+					
+					b11 = Double.parseDouble(tfB11.getText());
+					b12 = Double.parseDouble(tfB12.getText());
+					b13 = Double.parseDouble(tfB13.getText());
+					b14 = Double.parseDouble(tfB14.getText());
+					b21 = Double.parseDouble(tfB21.getText());
+					b22 = Double.parseDouble(tfB22.getText());
+					b23 = Double.parseDouble(tfB23.getText());
+					b24 = Double.parseDouble(tfB24.getText());
+					b31 = Double.parseDouble(tfB31.getText());
+					b32 = Double.parseDouble(tfB32.getText());
+					b33 = Double.parseDouble(tfB33.getText());
+					b34 = Double.parseDouble(tfB34.getText());
+					b41 = Double.parseDouble(tfB41.getText());
+					b42 = Double.parseDouble(tfB42.getText());
+					b43 = Double.parseDouble(tfB43.getText());
+					b44 = Double.parseDouble(tfB44.getText());
+					
+					e11 = a11 - b11;
+					e12 = a12 - b12;
+					e13 = a13 - b13;
+					e14 = a14 - b14;
+					
+					e21 = a21 - b21;
+					e22 = a22 - b22;
+					e23 = a23 - b23;
+					e24 = a24 - b24;
+					
+					e31 = a31 - b31;
+					e32 = a32 - b32;
+					e33 = a33 - b33;
+					e34 = a34 - b34;
+					
+					e41 = a41 - b41;
+					e42 = a42 - b42;
+					e43 = a43 - b43;
+					e44 = a44 - b44;
+					
+					tfE11.setText(Double.toString(e11));
+					tfE12.setText(Double.toString(e12));
+					tfE13.setText(Double.toString(e13));
+					tfE14.setText(Double.toString(e14));
+					
+					tfE21.setText(Double.toString(e21));
+					tfE22.setText(Double.toString(e22));
+					tfE23.setText(Double.toString(e23));
+					tfE24.setText(Double.toString(e24));
+					
+					tfE31.setText(Double.toString(e31));
+					tfE32.setText(Double.toString(e32));
+					tfE33.setText(Double.toString(e33));
+					tfE34.setText(Double.toString(e34));
+					
+					tfE41.setText(Double.toString(e41));
+					tfE42.setText(Double.toString(e42));
+					tfE43.setText(Double.toString(e43));
+					tfE44.setText(Double.toString(e44));
+				}
+				else if(grad == 5) {
+					a11 = Double.parseDouble(tfA11.getText());
+					a12 = Double.parseDouble(tfA12.getText());
+					a13 = Double.parseDouble(tfA13.getText());
+					a14 = Double.parseDouble(tfA14.getText());
+					a15 = Double.parseDouble(tfA15.getText());
+					a21 = Double.parseDouble(tfA21.getText());
+					a22 = Double.parseDouble(tfA22.getText());
+					a23 = Double.parseDouble(tfA23.getText());
+					a24 = Double.parseDouble(tfA24.getText());
+					a25 = Double.parseDouble(tfA25.getText());
+					a31 = Double.parseDouble(tfA31.getText());
+					a32 = Double.parseDouble(tfA32.getText());
+					a33 = Double.parseDouble(tfA33.getText());
+					a34 = Double.parseDouble(tfA34.getText());
+					a35 = Double.parseDouble(tfA35.getText());
+					a41 = Double.parseDouble(tfA41.getText());
+					a42 = Double.parseDouble(tfA42.getText());
+					a43 = Double.parseDouble(tfA43.getText());
+					a44 = Double.parseDouble(tfA44.getText());
+					a45 = Double.parseDouble(tfA45.getText());
+					a51 = Double.parseDouble(tfA51.getText());
+					a52 = Double.parseDouble(tfA52.getText());
+					a53 = Double.parseDouble(tfA53.getText());
+					a54 = Double.parseDouble(tfA54.getText());
+					a55 = Double.parseDouble(tfA55.getText());
+					
+					b11 = Double.parseDouble(tfB11.getText());
+					b12 = Double.parseDouble(tfB12.getText());
+					b13 = Double.parseDouble(tfB13.getText());
+					b14 = Double.parseDouble(tfB14.getText());
+					b15 = Double.parseDouble(tfB15.getText());
+					b21 = Double.parseDouble(tfB21.getText());
+					b22 = Double.parseDouble(tfB22.getText());
+					b23 = Double.parseDouble(tfB23.getText());
+					b24 = Double.parseDouble(tfB24.getText());
+					b25 = Double.parseDouble(tfB25.getText());
+					b31 = Double.parseDouble(tfB31.getText());
+					b32 = Double.parseDouble(tfB32.getText());
+					b33 = Double.parseDouble(tfB33.getText());
+					b34 = Double.parseDouble(tfB34.getText());
+					b35 = Double.parseDouble(tfB35.getText());
+					b41 = Double.parseDouble(tfB41.getText());
+					b42 = Double.parseDouble(tfB42.getText());
+					b43 = Double.parseDouble(tfB43.getText());
+					b44 = Double.parseDouble(tfB44.getText());
+					b45 = Double.parseDouble(tfB45.getText());
+					b51 = Double.parseDouble(tfB51.getText());
+					b52 = Double.parseDouble(tfB52.getText());
+					b53 = Double.parseDouble(tfB53.getText());
+					b54 = Double.parseDouble(tfB54.getText());
+					b55 = Double.parseDouble(tfB55.getText());
+					
+					e11 = a11 - b11;
+					e12 = a12 - b12;
+					e13 = a13 - b13;
+					e14 = a14 - b14;
+					e15 = a15 - b15;
+					
+					e21 = a21 - b21;
+					e22 = a22 - b22;
+					e23 = a23 - b23;
+					e24 = a24 - b24;
+					e25 = a25 - b25;
+					
+					e31 = a31 - b31;
+					e32 = a32 - b32;
+					e33 = a33 - b33;
+					e34 = a34 - b34;
+					e35 = a35 - b35;
+					
+					e41 = a41 - b41;
+					e42 = a42 - b42;
+					e43 = a43 - b43;
+					e44 = a44 - b44;
+					e45 = a45 - b45;
+					
+					e51 = a51 - b51;
+					e52 = a52 - b52;
+					e53 = a53 - b53;
+					e54 = a54 - b54;
+					e55 = a55 - b55;
+					
+					tfE11.setText(Double.toString(e11));
+					tfE12.setText(Double.toString(e12));
+					tfE13.setText(Double.toString(e13));
+					tfE14.setText(Double.toString(e14));
+					tfE15.setText(Double.toString(e15));
+					
+					tfE21.setText(Double.toString(e21));
+					tfE22.setText(Double.toString(e22));
+					tfE23.setText(Double.toString(e23));
+					tfE24.setText(Double.toString(e24));
+					tfE25.setText(Double.toString(e25));
+					
+					tfE31.setText(Double.toString(e31));
+					tfE32.setText(Double.toString(e32));
+					tfE33.setText(Double.toString(e33));
+					tfE34.setText(Double.toString(e34));
+					tfE35.setText(Double.toString(e35));
+					
+					tfE41.setText(Double.toString(e41));
+					tfE42.setText(Double.toString(e42));
+					tfE43.setText(Double.toString(e43));
+					tfE44.setText(Double.toString(e44));
+					tfE45.setText(Double.toString(e45));
+					
+					tfE51.setText(Double.toString(e51));
+					tfE52.setText(Double.toString(e52));
+					tfE53.setText(Double.toString(e53));
+					tfE54.setText(Double.toString(e54));
+					tfE55.setText(Double.toString(e55));
+				}
+			}
+		});
+		btnAminusB.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnAminusB.setBackground(Color.ORANGE);
+		btnAminusB.setBounds(582, 10, 90, 30);
+		contentPane.add(btnAminusB);
+		
+		tfE55 = new JTextField();
+		tfE55.setEditable(false);
+		tfE55.setColumns(10);
+		tfE55.setBackground(Color.ORANGE);
+		tfE55.setBounds(642, 279, 30, 30);
+		contentPane.add(tfE55);
+		
+		tfE54 = new JTextField();
+		tfE54.setEditable(false);
+		tfE54.setColumns(10);
+		tfE54.setBackground(Color.ORANGE);
+		tfE54.setBounds(602, 279, 30, 30);
+		contentPane.add(tfE54);
+		
+		tfE53 = new JTextField();
+		tfE53.setEditable(false);
+		tfE53.setColumns(10);
+		tfE53.setBackground(Color.ORANGE);
+		tfE53.setBounds(562, 279, 30, 30);
+		contentPane.add(tfE53);
+		
+		tfE52 = new JTextField();
+		tfE52.setEditable(false);
+		tfE52.setColumns(10);
+		tfE52.setBackground(Color.ORANGE);
+		tfE52.setBounds(522, 279, 30, 30);
+		contentPane.add(tfE52);
+		
+		tfE51 = new JTextField();
+		tfE51.setEditable(false);
+		tfE51.setColumns(10);
+		tfE51.setBackground(Color.ORANGE);
+		tfE51.setBounds(482, 279, 30, 30);
+		contentPane.add(tfE51);
+		
+		tfE45 = new JTextField();
+		tfE45.setEditable(false);
+		tfE45.setColumns(10);
+		tfE45.setBackground(Color.ORANGE);
+		tfE45.setBounds(642, 238, 30, 30);
+		contentPane.add(tfE45);
+		
+		tfE44 = new JTextField();
+		tfE44.setEditable(false);
+		tfE44.setColumns(10);
+		tfE44.setBackground(Color.ORANGE);
+		tfE44.setBounds(602, 238, 30, 30);
+		contentPane.add(tfE44);
+		
+		tfE43 = new JTextField();
+		tfE43.setEditable(false);
+		tfE43.setColumns(10);
+		tfE43.setBackground(Color.ORANGE);
+		tfE43.setBounds(562, 238, 30, 30);
+		contentPane.add(tfE43);
+		
+		tfE42 = new JTextField();
+		tfE42.setEditable(false);
+		tfE42.setColumns(10);
+		tfE42.setBackground(Color.ORANGE);
+		tfE42.setBounds(522, 238, 30, 30);
+		contentPane.add(tfE42);
+		
+		tfE41 = new JTextField();
+		tfE41.setEditable(false);
+		tfE41.setColumns(10);
+		tfE41.setBackground(Color.ORANGE);
+		tfE41.setBounds(482, 238, 30, 30);
+		contentPane.add(tfE41);
+		
+		tfE35 = new JTextField();
+		tfE35.setEditable(false);
+		tfE35.setColumns(10);
+		tfE35.setBackground(Color.ORANGE);
+		tfE35.setBounds(642, 197, 30, 30);
+		contentPane.add(tfE35);
+		
+		tfE34 = new JTextField();
+		tfE34.setEditable(false);
+		tfE34.setColumns(10);
+		tfE34.setBackground(Color.ORANGE);
+		tfE34.setBounds(602, 197, 30, 30);
+		contentPane.add(tfE34);
+		
+		tfE33 = new JTextField();
+		tfE33.setEditable(false);
+		tfE33.setColumns(10);
+		tfE33.setBackground(Color.ORANGE);
+		tfE33.setBounds(562, 197, 30, 30);
+		contentPane.add(tfE33);
+		
+		tfE32 = new JTextField();
+		tfE32.setEditable(false);
+		tfE32.setColumns(10);
+		tfE32.setBackground(Color.ORANGE);
+		tfE32.setBounds(522, 197, 30, 30);
+		contentPane.add(tfE32);
+		
+		tfE31 = new JTextField();
+		tfE31.setEditable(false);
+		tfE31.setColumns(10);
+		tfE31.setBackground(Color.ORANGE);
+		tfE31.setBounds(482, 197, 30, 30);
+		contentPane.add(tfE31);
+		
+		tfE25 = new JTextField();
+		tfE25.setEditable(false);
+		tfE25.setColumns(10);
+		tfE25.setBackground(Color.ORANGE);
+		tfE25.setBounds(642, 156, 30, 30);
+		contentPane.add(tfE25);
+		
+		tfE24 = new JTextField();
+		tfE24.setEditable(false);
+		tfE24.setColumns(10);
+		tfE24.setBackground(Color.ORANGE);
+		tfE24.setBounds(602, 156, 30, 30);
+		contentPane.add(tfE24);
+		
+		tfE23 = new JTextField();
+		tfE23.setEditable(false);
+		tfE23.setColumns(10);
+		tfE23.setBackground(Color.ORANGE);
+		tfE23.setBounds(562, 156, 30, 30);
+		contentPane.add(tfE23);
+		
+		tfE22 = new JTextField();
+		tfE22.setEditable(false);
+		tfE22.setColumns(10);
+		tfE22.setBackground(Color.ORANGE);
+		tfE22.setBounds(522, 156, 30, 30);
+		contentPane.add(tfE22);
+		
+		tfE21 = new JTextField();
+		tfE21.setEditable(false);
+		tfE21.setColumns(10);
+		tfE21.setBackground(Color.ORANGE);
+		tfE21.setBounds(482, 156, 30, 30);
+		contentPane.add(tfE21);
+		
+		tfE15 = new JTextField();
+		tfE15.setEditable(false);
+		tfE15.setColumns(10);
+		tfE15.setBackground(Color.ORANGE);
+		tfE15.setBounds(642, 115, 30, 30);
+		contentPane.add(tfE15);
+		
+		tfE14 = new JTextField();
+		tfE14.setEditable(false);
+		tfE14.setColumns(10);
+		tfE14.setBackground(Color.ORANGE);
+		tfE14.setBounds(602, 115, 30, 30);
+		contentPane.add(tfE14);
+		
+		tfE13 = new JTextField();
+		tfE13.setEditable(false);
+		tfE13.setColumns(10);
+		tfE13.setBackground(Color.ORANGE);
+		tfE13.setBounds(562, 115, 30, 30);
+		contentPane.add(tfE13);
+		
+		tfE12 = new JTextField();
+		tfE12.setEditable(false);
+		tfE12.setColumns(10);
+		tfE12.setBackground(Color.ORANGE);
+		tfE12.setBounds(522, 115, 30, 30);
+		contentPane.add(tfE12);
+		
+		tfE11 = new JTextField();
+		tfE11.setEditable(false);
+		tfE11.setColumns(10);
+		tfE11.setBackground(Color.ORANGE);
+		tfE11.setBounds(482, 115, 30, 30);
+		contentPane.add(tfE11);
+		
+		tfGrad = new JTextField();
+		tfGrad.setBackground(Color.ORANGE);
+		tfGrad.setBounds(315, 10, 50, 30);
+		contentPane.add(tfGrad);
+		tfGrad.setColumns(10);
+		
+		lblErgebnis = new JLabel("        Ergebnis");
+		lblErgebnis.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblErgebnis.setBounds(482, 51, 190, 53);
+		contentPane.add(lblErgebnis);
+		
+		JButton btnOk = new JButton("OK");
+		btnOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				grad = Integer.parseInt(tfGrad.getText());
+				
+				if(grad == 1) {
+					// Matrix A
+					tfA11.setEnabled(true);
+					tfA11.setBackground(Color.ORANGE);
+					
+					tfA12.setEnabled(false);
+					tfA12.setBackground(Color.GRAY);
+					tfA12.setVisible(false);
+					
+					tfA13.setEnabled(false);
+					tfA13.setBackground(Color.GRAY);
+					tfA13.setVisible(false);
+					
+					tfA14.setEnabled(false);
+					tfA14.setBackground(Color.GRAY);
+					tfA14.setVisible(false);
+					
+					tfA15.setEnabled(false);
+					tfA15.setBackground(Color.GRAY);
+					tfA15.setVisible(false);
+					
+					tfA21.setEnabled(false);
+					tfA21.setBackground(Color.GRAY);
+					tfA21.setVisible(false);
+					
+					tfA22.setEnabled(false);
+					tfA22.setBackground(Color.GRAY);
+					tfA22.setVisible(false);
+					
+					tfA23.setEnabled(false);
+					tfA23.setBackground(Color.GRAY);
+					tfA23.setVisible(false);
+					
+					tfA24.setEnabled(false);
+					tfA24.setBackground(Color.GRAY);
+					tfA24.setVisible(false);
+					
+					tfA25.setEnabled(false);
+					tfA25.setBackground(Color.GRAY);
+					tfA25.setVisible(false);
+					
+					tfA31.setEnabled(false);
+					tfA31.setBackground(Color.GRAY);
+					tfA31.setVisible(false);
+					
+					tfA32.setEnabled(false);
+					tfA32.setBackground(Color.GRAY);
+					tfA32.setVisible(false);
+					
+					tfA33.setEnabled(false);
+					tfA33.setBackground(Color.GRAY);
+					tfA33.setVisible(false);
+					
+					tfA34.setEnabled(false);
+					tfA34.setBackground(Color.GRAY);
+					tfA34.setVisible(false);
+					
+					tfA35.setEnabled(false);
+					tfA35.setBackground(Color.GRAY);
+					tfA35.setVisible(false);
+					
+					tfA41.setEnabled(false);
+					tfA41.setBackground(Color.GRAY);
+					tfA41.setVisible(false);
+					
+					tfA42.setEnabled(false);
+					tfA42.setBackground(Color.GRAY);
+					tfA42.setVisible(false);
+					
+					tfA43.setEnabled(false);
+					tfA43.setBackground(Color.GRAY);
+					tfA43.setVisible(false);
+					
+					tfA44.setEnabled(false);
+					tfA44.setBackground(Color.GRAY);
+					tfA44.setVisible(false);
+					
+					tfA45.setEnabled(false);
+					tfA45.setBackground(Color.GRAY);
+					tfA45.setVisible(false);
+					
+					tfA51.setEnabled(false);
+					tfA51.setBackground(Color.GRAY);
+					tfA51.setVisible(false);
+					
+					tfA52.setEnabled(false);
+					tfA52.setBackground(Color.GRAY);
+					tfA52.setVisible(false);
+					
+					tfA53.setEnabled(false);
+					tfA53.setBackground(Color.GRAY);
+					tfA53.setVisible(false);
+					
+					tfA54.setEnabled(false);
+					tfA54.setBackground(Color.GRAY);
+					tfA54.setVisible(false);
+					
+					tfA55.setEnabled(false);
+					tfA55.setBackground(Color.GRAY);
+					tfA55.setVisible(false);
+					
+					// Matrix B
+					tfB11.setEnabled(true);
+					tfB11.setBackground(Color.ORANGE);
+					tfB11.setVisible(true);
+					
+					tfB12.setEnabled(false);
+					tfB12.setBackground(Color.GRAY);
+					tfB12.setVisible(false);
+					
+					tfB13.setEnabled(false);
+					tfB13.setBackground(Color.GRAY);
+					tfB13.setVisible(false);
+					
+					tfB14.setEnabled(false);
+					tfB14.setBackground(Color.GRAY);
+					tfB14.setVisible(false);
+					
+					tfB15.setEnabled(false);
+					tfB15.setBackground(Color.GRAY);
+					tfB15.setVisible(false);
+					
+					tfB21.setEnabled(false);
+					tfB21.setBackground(Color.GRAY);
+					tfB21.setVisible(false);
+					
+					tfB22.setEnabled(false);
+					tfB22.setBackground(Color.GRAY);
+					tfB22.setVisible(false);
+					
+					tfB23.setEnabled(false);
+					tfB23.setBackground(Color.GRAY);
+					tfB23.setVisible(false);
+					
+					tfB24.setEnabled(false);
+					tfB24.setBackground(Color.GRAY);
+					tfB24.setVisible(false);
+					
+					tfB25.setEnabled(false);
+					tfB25.setBackground(Color.GRAY);
+					tfB25.setVisible(false);
+					
+					tfB31.setEnabled(false);
+					tfB31.setBackground(Color.GRAY);
+					tfB31.setVisible(false);
+					
+					tfB32.setEnabled(false);
+					tfB32.setBackground(Color.GRAY);
+					tfB32.setVisible(false);
+					
+					tfB33.setEnabled(false);
+					tfB33.setBackground(Color.GRAY);
+					tfB33.setVisible(false);
+					
+					tfB34.setEnabled(false);
+					tfB34.setBackground(Color.GRAY);
+					tfB34.setVisible(false);
+					
+					tfB35.setEnabled(false);
+					tfB35.setBackground(Color.GRAY);
+					tfB35.setVisible(false);
+					
+					tfB41.setEnabled(false);
+					tfB41.setBackground(Color.GRAY);
+					tfB41.setVisible(false);
+					
+					tfB42.setEnabled(false);
+					tfB42.setBackground(Color.GRAY);
+					tfB42.setVisible(false);
+					
+					tfB43.setEnabled(false);
+					tfB43.setBackground(Color.GRAY);
+					tfB43.setVisible(false);
+					
+					tfB44.setEnabled(false);
+					tfB44.setBackground(Color.GRAY);
+					tfB44.setVisible(false);
+					
+					tfB45.setEnabled(false);
+					tfB45.setBackground(Color.GRAY);
+					tfB45.setVisible(false);
+					
+					tfB51.setEnabled(false);
+					tfB51.setBackground(Color.GRAY);
+					tfB51.setVisible(false);
+					
+					tfB52.setEnabled(false);
+					tfB52.setBackground(Color.GRAY);
+					tfB52.setVisible(false);
+					
+					tfB53.setEnabled(false);
+					tfB53.setBackground(Color.GRAY);
+					tfB53.setVisible(false);
+					
+					tfB54.setEnabled(false);
+					tfB54.setBackground(Color.GRAY);
+					tfB54.setVisible(false);
+					
+					tfB55.setEnabled(false);
+					tfB55.setBackground(Color.GRAY);
+					tfB55.setVisible(false);
+					
+					// Matrix E
+					tfE11.setEnabled(true);
+					tfE11.setBackground(Color.ORANGE);
+					
+					tfE12.setEnabled(false);
+					tfE12.setBackground(Color.GRAY);
+					tfE12.setVisible(false);
+					
+					tfE13.setEnabled(false);
+					tfE13.setBackground(Color.GRAY);
+					tfE13.setVisible(false);
+					
+					tfE14.setEnabled(false);
+					tfE14.setBackground(Color.GRAY);
+					tfE14.setVisible(false);
+					
+					tfE15.setEnabled(false);
+					tfE15.setBackground(Color.GRAY);
+					tfE15.setVisible(false);
+					
+					tfE21.setEnabled(false);
+					tfE21.setBackground(Color.GRAY);
+					tfE21.setVisible(false);
+					
+					tfE22.setEnabled(false);
+					tfE22.setBackground(Color.GRAY);
+					tfE22.setVisible(false);
+					
+					tfE23.setEnabled(false);
+					tfE23.setBackground(Color.GRAY);
+					tfE23.setVisible(false);
+					
+					tfE24.setEnabled(false);
+					tfE24.setBackground(Color.GRAY);
+					tfE24.setVisible(false);
+					
+					tfE25.setEnabled(false);
+					tfE25.setBackground(Color.GRAY);
+					tfE25.setVisible(false);
+					
+					tfE31.setEnabled(false);
+					tfE31.setBackground(Color.GRAY);
+					tfE31.setVisible(false);
+					
+					tfE32.setEnabled(false);
+					tfE32.setBackground(Color.GRAY);
+					tfE32.setVisible(false);
+					
+					tfE33.setEnabled(false);
+					tfE33.setBackground(Color.GRAY);
+					tfE33.setVisible(false);
+					
+					tfE34.setEnabled(false);
+					tfE34.setBackground(Color.GRAY);
+					tfE34.setVisible(false);
+					
+					tfE35.setEnabled(false);
+					tfE35.setBackground(Color.GRAY);
+					tfE35.setVisible(false);
+					
+					tfE41.setEnabled(false);
+					tfE41.setBackground(Color.GRAY);
+					tfE41.setVisible(false);
+					
+					tfE42.setEnabled(false);
+					tfE42.setBackground(Color.GRAY);
+					tfE42.setVisible(false);
+					
+					tfE43.setEnabled(false);
+					tfE43.setBackground(Color.GRAY);
+					tfE43.setVisible(false);
+					
+					tfE44.setEnabled(false);
+					tfE44.setBackground(Color.GRAY);
+					tfE44.setVisible(false);
+					
+					tfE45.setEnabled(false);
+					tfE45.setBackground(Color.GRAY);
+					tfE45.setVisible(false);
+					
+					tfE51.setEnabled(false);
+					tfE51.setBackground(Color.GRAY);
+					tfE51.setVisible(false);
+					
+					tfE52.setEnabled(false);
+					tfE52.setBackground(Color.GRAY);
+					tfE52.setVisible(false);
+					
+					tfE53.setEnabled(false);
+					tfE53.setBackground(Color.GRAY);
+					tfE53.setVisible(false);
+					
+					tfE54.setEnabled(false);
+					tfE54.setBackground(Color.GRAY);
+					tfE54.setVisible(false);
+					
+					tfE55.setEnabled(false);
+					tfE55.setBackground(Color.GRAY);
+					tfE55.setVisible(false);
+				}
+				else if(grad == 2) {
+					// Matrix A
+					tfA11.setEnabled(true);
+					tfA11.setBackground(Color.ORANGE);
+					
+					tfA12.setEnabled(true);
+					tfA12.setBackground(Color.ORANGE);
+					
+					tfA13.setEnabled(false);
+					tfA13.setBackground(Color.GRAY);
+					tfA13.setVisible(false);
+					
+					tfA14.setEnabled(false);
+					tfA14.setBackground(Color.GRAY);
+					tfA14.setVisible(false);
+					
+					tfA15.setEnabled(false);
+					tfA15.setBackground(Color.GRAY);
+					tfA15.setVisible(false);
+					
+					tfA21.setEnabled(true);
+					tfA21.setBackground(Color.ORANGE);
+					
+					tfA22.setEnabled(true);
+					tfA22.setBackground(Color.ORANGE);
+					
+					tfA23.setEnabled(false);
+					tfA23.setBackground(Color.GRAY);
+					tfA23.setVisible(false);
+					
+					tfA24.setEnabled(false);
+					tfA24.setBackground(Color.GRAY);
+					tfA24.setVisible(false);
+					
+					tfA25.setEnabled(false);
+					tfA25.setBackground(Color.GRAY);
+					tfA25.setVisible(false);
+					
+					tfA31.setEnabled(false);
+					tfA31.setBackground(Color.GRAY);
+					tfA31.setVisible(false);
+					
+					tfA32.setEnabled(false);
+					tfA32.setBackground(Color.GRAY);
+					tfA32.setVisible(false);
+					
+					tfA33.setEnabled(false);
+					tfA33.setBackground(Color.GRAY);
+					tfA33.setVisible(false);
+					
+					tfA34.setEnabled(false);
+					tfA34.setBackground(Color.GRAY);
+					tfA34.setVisible(false);
+					
+					tfA35.setEnabled(false);
+					tfA35.setBackground(Color.GRAY);
+					tfA35.setVisible(false);
+					
+					tfA41.setEnabled(false);
+					tfA41.setBackground(Color.GRAY);
+					tfA41.setVisible(false);
+					
+					tfA42.setEnabled(false);
+					tfA42.setBackground(Color.GRAY);
+					tfA42.setVisible(false);
+					
+					tfA43.setEnabled(false);
+					tfA43.setBackground(Color.GRAY);
+					tfA43.setVisible(false);
+					
+					tfA44.setEnabled(false);
+					tfA44.setBackground(Color.GRAY);
+					tfA44.setVisible(false);
+					
+					tfA45.setEnabled(false);
+					tfA45.setBackground(Color.GRAY);
+					tfA45.setVisible(false);
+					
+					tfA51.setEnabled(false);
+					tfA51.setBackground(Color.GRAY);
+					tfA51.setVisible(false);
+					
+					tfA52.setEnabled(false);
+					tfA52.setBackground(Color.GRAY);
+					tfA52.setVisible(false);
+					
+					tfA53.setEnabled(false);
+					tfA53.setBackground(Color.GRAY);
+					tfA53.setVisible(false);
+					
+					tfA54.setEnabled(false);
+					tfA54.setBackground(Color.GRAY);
+					tfA54.setVisible(false);
+					
+					tfA55.setEnabled(false);
+					tfA55.setBackground(Color.GRAY);
+					tfA55.setVisible(false);
+					
+					// Matrix B
+					tfB11.setEnabled(true);
+					tfB11.setBackground(Color.ORANGE);
+					
+					tfB12.setEnabled(true);
+					tfB12.setBackground(Color.ORANGE);
+					
+					tfB13.setEnabled(false);
+					tfB13.setBackground(Color.GRAY);
+					tfB13.setVisible(false);
+					
+					tfB14.setEnabled(false);
+					tfB14.setBackground(Color.GRAY);
+					tfB14.setVisible(false);
+					
+					tfB15.setEnabled(false);
+					tfB15.setBackground(Color.GRAY);
+					tfB15.setVisible(false);
+					
+					tfB21.setEnabled(true);
+					tfB21.setBackground(Color.ORANGE);
+					
+					tfB22.setEnabled(true);
+					tfB22.setBackground(Color.ORANGE);
+					
+					tfB23.setEnabled(false);
+					tfB23.setBackground(Color.GRAY);
+					tfB23.setVisible(false);
+					
+					tfB24.setEnabled(false);
+					tfB24.setBackground(Color.GRAY);
+					tfB24.setVisible(false);
+					
+					tfB25.setEnabled(false);
+					tfB25.setBackground(Color.GRAY);
+					tfB25.setVisible(false);
+					
+					tfB31.setEnabled(false);
+					tfB31.setBackground(Color.GRAY);
+					tfB31.setVisible(false);
+					
+					tfB32.setEnabled(false);
+					tfB32.setBackground(Color.GRAY);
+					tfB32.setVisible(false);
+					
+					tfB33.setEnabled(false);
+					tfB33.setBackground(Color.GRAY);
+					tfB33.setVisible(false);
+					
+					tfB34.setEnabled(false);
+					tfB34.setBackground(Color.GRAY);
+					tfB34.setVisible(false);
+					
+					tfB35.setEnabled(false);
+					tfB35.setBackground(Color.GRAY);
+					tfB35.setVisible(false);
+					
+					tfB41.setEnabled(false);
+					tfB41.setBackground(Color.GRAY);
+					tfB41.setVisible(false);
+					
+					tfB42.setEnabled(false);
+					tfB42.setBackground(Color.GRAY);
+					tfB42.setVisible(false);
+					
+					tfB43.setEnabled(false);
+					tfB43.setBackground(Color.GRAY);
+					tfB43.setVisible(false);
+					
+					tfB44.setEnabled(false);
+					tfB44.setBackground(Color.GRAY);
+					tfB44.setVisible(false);
+					
+					tfB45.setEnabled(false);
+					tfB45.setBackground(Color.GRAY);
+					tfB45.setVisible(false);
+					
+					tfB51.setEnabled(false);
+					tfB51.setBackground(Color.GRAY);
+					tfB51.setVisible(false);
+					
+					tfB52.setEnabled(false);
+					tfB52.setBackground(Color.GRAY);
+					tfB52.setVisible(false);
+					
+					tfB53.setEnabled(false);
+					tfB53.setBackground(Color.GRAY);
+					tfB53.setVisible(false);
+					
+					tfB54.setEnabled(false);
+					tfB54.setBackground(Color.GRAY);
+					tfB54.setVisible(false);
+					
+					tfB55.setEnabled(false);
+					tfB55.setBackground(Color.GRAY);
+					tfB55.setVisible(false);
+					
+					// Matrix E
+					tfE11.setEnabled(true);
+					tfE11.setBackground(Color.ORANGE);
+					
+					tfE12.setEnabled(true);
+					tfE12.setBackground(Color.ORANGE);
+					
+					tfE13.setEnabled(false);
+					tfE13.setBackground(Color.GRAY);
+					tfE13.setVisible(false);
+					
+					tfE14.setEnabled(false);
+					tfE14.setBackground(Color.GRAY);
+					tfE14.setVisible(false);
+					
+					tfE15.setEnabled(false);
+					tfE15.setBackground(Color.GRAY);
+					tfE15.setVisible(false);
+					
+					tfE21.setEnabled(true);
+					tfE21.setBackground(Color.ORANGE);
+					
+					tfE22.setEnabled(true);
+					tfE22.setBackground(Color.ORANGE);
+					
+					tfE23.setEnabled(false);
+					tfE23.setBackground(Color.GRAY);
+					tfE23.setVisible(false);
+					
+					tfE24.setEnabled(false);
+					tfE24.setBackground(Color.GRAY);
+					tfE24.setVisible(false);
+					
+					tfE25.setEnabled(false);
+					tfE25.setBackground(Color.GRAY);
+					tfE25.setVisible(false);
+					
+					tfE31.setEnabled(false);
+					tfE31.setBackground(Color.GRAY);
+					tfE31.setVisible(false);
+					
+					tfE32.setEnabled(false);
+					tfE32.setBackground(Color.GRAY);
+					tfE32.setVisible(false);
+					
+					tfE33.setEnabled(false);
+					tfE33.setBackground(Color.GRAY);
+					tfE33.setVisible(false);
+					
+					tfE34.setEnabled(false);
+					tfE34.setBackground(Color.GRAY);
+					tfE34.setVisible(false);
+					
+					tfE35.setEnabled(false);
+					tfE35.setBackground(Color.GRAY);
+					tfE35.setVisible(false);
+					
+					tfE41.setEnabled(false);
+					tfE41.setBackground(Color.GRAY);
+					tfE41.setVisible(false);
+					
+					tfE42.setEnabled(false);
+					tfE42.setBackground(Color.GRAY);
+					tfE42.setVisible(false);
+					
+					tfE43.setEnabled(false);
+					tfE43.setBackground(Color.GRAY);
+					tfE43.setVisible(false);
+					
+					tfE44.setEnabled(false);
+					tfE44.setBackground(Color.GRAY);
+					tfE44.setVisible(false);
+					
+					tfE45.setEnabled(false);
+					tfE45.setBackground(Color.GRAY);
+					tfE45.setVisible(false);
+					
+					tfE51.setEnabled(false);
+					tfE51.setBackground(Color.GRAY);
+					tfE51.setVisible(false);
+					
+					tfE52.setEnabled(false);
+					tfE52.setBackground(Color.GRAY);
+					tfE52.setVisible(false);
+					
+					tfE53.setEnabled(false);
+					tfE53.setBackground(Color.GRAY);
+					tfE53.setVisible(false);
+					
+					tfE54.setEnabled(false);
+					tfE54.setBackground(Color.GRAY);
+					tfE54.setVisible(false);
+					
+					tfE55.setEnabled(false);
+					tfE55.setBackground(Color.GRAY);
+					tfE55.setVisible(false);
+				}
+				else if(grad == 3) {
+					// Matrix A
+					tfA11.setEnabled(true);
+					tfA11.setBackground(Color.ORANGE);
+					
+					tfA12.setEnabled(true);
+					tfA12.setBackground(Color.ORANGE);
+					
+					tfA13.setEnabled(true);
+					tfA13.setBackground(Color.ORANGE);
+					
+					tfA14.setEnabled(false);
+					tfA14.setBackground(Color.GRAY);
+					tfA14.setVisible(false);
+					
+					tfA15.setEnabled(false);
+					tfA15.setBackground(Color.GRAY);
+					tfA15.setVisible(false);
+					
+					tfA21.setEnabled(true);
+					tfA21.setBackground(Color.ORANGE);
+					
+					tfA22.setEnabled(true);
+					tfA22.setBackground(Color.ORANGE);
+					
+					tfA23.setEnabled(true);
+					tfA23.setBackground(Color.ORANGE);
+					
+					tfA24.setEnabled(false);
+					tfA24.setBackground(Color.GRAY);
+					tfA24.setVisible(false);
+					
+					tfA25.setEnabled(false);
+					tfA25.setBackground(Color.GRAY);
+					tfA25.setVisible(false);
+					
+					tfA31.setEnabled(true);
+					tfA31.setBackground(Color.ORANGE);
+					
+					tfA32.setEnabled(true);
+					tfA32.setBackground(Color.ORANGE);
+					
+					tfA33.setEnabled(true);
+					tfA33.setBackground(Color.ORANGE);
+					
+					tfA34.setEnabled(false);
+					tfA34.setBackground(Color.GRAY);
+					tfA34.setVisible(false);
+					
+					tfA35.setEnabled(false);
+					tfA35.setBackground(Color.GRAY);
+					tfA35.setVisible(false);
+					
+					tfA41.setEnabled(false);
+					tfA41.setBackground(Color.GRAY);
+					tfA41.setVisible(false);
+					
+					tfA42.setEnabled(false);
+					tfA42.setBackground(Color.GRAY);
+					tfA42.setVisible(false);
+					
+					tfA43.setEnabled(false);
+					tfA43.setBackground(Color.GRAY);
+					tfA43.setVisible(false);
+					
+					tfA44.setEnabled(false);
+					tfA44.setBackground(Color.GRAY);
+					tfA44.setVisible(false);
+					
+					tfA45.setEnabled(false);
+					tfA45.setBackground(Color.GRAY);
+					tfA45.setVisible(false);
+					
+					tfA51.setEnabled(false);
+					tfA51.setBackground(Color.GRAY);
+					tfA51.setVisible(false);
+					
+					tfA52.setEnabled(false);
+					tfA52.setBackground(Color.GRAY);
+					tfA52.setVisible(false);
+					
+					tfA53.setEnabled(false);
+					tfA53.setBackground(Color.GRAY);
+					tfA53.setVisible(false);
+					
+					tfA54.setEnabled(false);
+					tfA54.setBackground(Color.GRAY);
+					tfA54.setVisible(false);
+					
+					tfA55.setEnabled(false);
+					tfA55.setBackground(Color.GRAY);
+					tfA55.setVisible(false);
+					
+					// Matrix B
+					tfB11.setEnabled(true);
+					tfB11.setBackground(Color.ORANGE);
+					
+					tfB12.setEnabled(true);
+					tfB12.setBackground(Color.ORANGE);
+					
+					tfB13.setEnabled(true);
+					tfB13.setBackground(Color.ORANGE);
+					
+					tfB14.setEnabled(false);
+					tfB14.setBackground(Color.GRAY);
+					tfB14.setVisible(false);
+					
+					tfB15.setEnabled(false);
+					tfB15.setBackground(Color.GRAY);
+					tfB15.setVisible(false);
+					
+					tfB21.setEnabled(true);
+					tfB21.setBackground(Color.ORANGE);
+					
+					tfB22.setEnabled(true);
+					tfB22.setBackground(Color.ORANGE);
+					
+					tfB23.setEnabled(true);
+					tfB23.setBackground(Color.ORANGE);
+					
+					tfB24.setEnabled(false);
+					tfB24.setBackground(Color.GRAY);
+					tfB24.setVisible(false);
+					
+					tfB25.setEnabled(false);
+					tfB25.setBackground(Color.GRAY);
+					tfB25.setVisible(false);
+					
+					tfB31.setEnabled(true);
+					tfB31.setBackground(Color.ORANGE);
+					
+					tfB32.setEnabled(true);
+					tfB32.setBackground(Color.ORANGE);
+					
+					tfB33.setEnabled(true);
+					tfB33.setBackground(Color.ORANGE);
+					
+					tfB34.setEnabled(false);
+					tfB34.setBackground(Color.GRAY);
+					tfB34.setVisible(false);
+					
+					tfB35.setEnabled(false);
+					tfB35.setBackground(Color.GRAY);
+					tfB35.setVisible(false);
+					
+					tfB41.setEnabled(false);
+					tfB41.setBackground(Color.GRAY);
+					tfB41.setVisible(false);
+					
+					tfB42.setEnabled(false);
+					tfB42.setBackground(Color.GRAY);
+					tfB42.setVisible(false);
+					
+					tfB43.setEnabled(false);
+					tfB43.setBackground(Color.GRAY);
+					tfB43.setVisible(false);
+					
+					tfB44.setEnabled(false);
+					tfB44.setBackground(Color.GRAY);
+					tfB44.setVisible(false);
+					
+					tfB45.setEnabled(false);
+					tfB45.setBackground(Color.GRAY);
+					tfB45.setVisible(false);
+					
+					tfB51.setEnabled(false);
+					tfB51.setBackground(Color.GRAY);
+					tfB51.setVisible(false);
+					
+					tfB52.setEnabled(false);
+					tfB52.setBackground(Color.GRAY);
+					tfB52.setVisible(false);
+					
+					tfB53.setEnabled(false);
+					tfB53.setBackground(Color.GRAY);
+					tfB53.setVisible(false);
+					
+					tfB54.setEnabled(false);
+					tfB54.setBackground(Color.GRAY);
+					tfB54.setVisible(false);
+					
+					tfB55.setEnabled(false);
+					tfB55.setBackground(Color.GRAY);
+					tfB55.setVisible(false);
+					
+					// Matrix E
+					tfE11.setEnabled(true);
+					tfE11.setBackground(Color.ORANGE);
+					
+					tfE12.setEnabled(true);
+					tfE12.setBackground(Color.ORANGE);
+					
+					tfE13.setEnabled(true);
+					tfE13.setBackground(Color.ORANGE);
+					
+					tfE14.setEnabled(false);
+					tfE14.setBackground(Color.GRAY);
+					tfE14.setVisible(false);
+					
+					tfE15.setEnabled(false);
+					tfE15.setBackground(Color.GRAY);
+					tfE15.setVisible(false);
+					
+					tfE21.setEnabled(true);
+					tfE21.setBackground(Color.ORANGE);
+					
+					tfE22.setEnabled(true);
+					tfE22.setBackground(Color.ORANGE);
+					
+					tfE23.setEnabled(true);
+					tfE23.setBackground(Color.ORANGE);
+					
+					tfE24.setEnabled(false);
+					tfE24.setBackground(Color.GRAY);
+					tfE24.setVisible(false);
+					
+					tfE25.setEnabled(false);
+					tfE25.setBackground(Color.GRAY);
+					tfE25.setVisible(false);
+					
+					tfE31.setEnabled(true);
+					tfE31.setBackground(Color.ORANGE);
+					
+					tfE32.setEnabled(true);
+					tfE32.setBackground(Color.ORANGE);
+					
+					tfE33.setEnabled(true);
+					tfE33.setBackground(Color.ORANGE);
+					
+					tfE34.setEnabled(false);
+					tfE34.setBackground(Color.GRAY);
+					tfE34.setVisible(false);
+					
+					tfE35.setEnabled(false);
+					tfE35.setBackground(Color.GRAY);
+					tfE35.setVisible(false);
+					
+					tfE41.setEnabled(false);
+					tfE41.setBackground(Color.GRAY);
+					tfE41.setVisible(false);
+					
+					tfE42.setEnabled(false);
+					tfE42.setBackground(Color.GRAY);
+					tfE42.setVisible(false);
+					
+					tfE43.setEnabled(false);
+					tfE43.setBackground(Color.GRAY);
+					tfE43.setVisible(false);
+					
+					tfE44.setEnabled(false);
+					tfE44.setBackground(Color.GRAY);
+					tfE44.setVisible(false);
+					
+					tfE45.setEnabled(false);
+					tfE45.setBackground(Color.GRAY);
+					tfE45.setVisible(false);
+					
+					tfE51.setEnabled(false);
+					tfE51.setBackground(Color.GRAY);
+					tfE51.setVisible(false);
+					
+					tfE52.setEnabled(false);
+					tfE52.setBackground(Color.GRAY);
+					tfE52.setVisible(false);
+					
+					tfE53.setEnabled(false);
+					tfE53.setBackground(Color.GRAY);
+					tfE53.setVisible(false);
+					
+					tfE54.setEnabled(false);
+					tfE54.setBackground(Color.GRAY);
+					tfE54.setVisible(false);
+					
+					tfE55.setEnabled(false);
+					tfE55.setBackground(Color.GRAY);
+					tfE55.setVisible(false);
+				}
+				else if(grad == 4) {
+					// Matrix A
+					tfA11.setEnabled(true);
+					tfA11.setBackground(Color.ORANGE);
+					
+					tfA12.setEnabled(true);
+					tfA12.setBackground(Color.ORANGE);
+					
+					tfA13.setEnabled(true);
+					tfA13.setBackground(Color.ORANGE);
+					
+					tfA14.setEnabled(true);
+					tfA14.setBackground(Color.ORANGE);
+					
+					tfA15.setEnabled(false);
+					tfA15.setBackground(Color.GRAY);
+					tfA15.setVisible(false);
+					
+					tfA21.setEnabled(true);
+					tfA21.setBackground(Color.ORANGE);
+					
+					tfA22.setEnabled(true);
+					tfA22.setBackground(Color.ORANGE);
+					
+					tfA23.setEnabled(true);
+					tfA23.setBackground(Color.ORANGE);
+					
+					tfA24.setEnabled(true);
+					tfA24.setBackground(Color.ORANGE);
+					
+					tfA25.setEnabled(false);
+					tfA25.setBackground(Color.GRAY);
+					tfA25.setVisible(false);
+					
+					tfA31.setEnabled(true);
+					tfA31.setBackground(Color.ORANGE);
+					
+					tfA32.setEnabled(true);
+					tfA32.setBackground(Color.ORANGE);
+					
+					tfA33.setEnabled(true);
+					tfA33.setBackground(Color.ORANGE);
+					
+					tfA34.setEnabled(true);
+					tfA34.setBackground(Color.ORANGE);
+					
+					tfA35.setEnabled(false);
+					tfA35.setBackground(Color.GRAY);
+					tfA35.setVisible(false);
+					
+					tfA41.setEnabled(true);
+					tfA41.setBackground(Color.ORANGE);
+					
+					tfA42.setEnabled(true);
+					tfA42.setBackground(Color.ORANGE);
+					
+					tfA43.setEnabled(true);
+					tfA43.setBackground(Color.ORANGE);
+					
+					tfA44.setEnabled(true);
+					tfA44.setBackground(Color.ORANGE);
+					
+					tfA45.setEnabled(false);
+					tfA45.setBackground(Color.GRAY);
+					tfA45.setVisible(false);
+					
+					tfA51.setEnabled(false);
+					tfA51.setBackground(Color.GRAY);
+					tfA51.setVisible(false);
+					
+					tfA52.setEnabled(false);
+					tfA52.setBackground(Color.GRAY);
+					tfA52.setVisible(false);
+					
+					tfA53.setEnabled(false);
+					tfA53.setBackground(Color.GRAY);
+					tfA53.setVisible(false);
+					
+					tfA54.setEnabled(false);
+					tfA54.setBackground(Color.GRAY);
+					tfA54.setVisible(false);
+					
+					tfA55.setEnabled(false);
+					tfA55.setBackground(Color.GRAY);
+					tfA55.setVisible(false);
+					
+					// Matrix B
+					tfB11.setEnabled(true);
+					tfB11.setBackground(Color.ORANGE);
+					
+					tfB12.setEnabled(true);
+					tfB12.setBackground(Color.ORANGE);
+					
+					tfB13.setEnabled(true);
+					tfB13.setBackground(Color.ORANGE);
+					
+					tfB14.setEnabled(true);
+					tfB14.setBackground(Color.ORANGE);
+					
+					tfB15.setEnabled(false);
+					tfB15.setBackground(Color.GRAY);
+					tfB15.setVisible(false);
+					
+					tfB21.setEnabled(true);
+					tfB21.setBackground(Color.ORANGE);
+					
+					tfB22.setEnabled(true);
+					tfB22.setBackground(Color.ORANGE);
+					
+					tfB23.setEnabled(true);
+					tfB23.setBackground(Color.ORANGE);
+					
+					tfB24.setEnabled(true);
+					tfB24.setBackground(Color.ORANGE);
+					
+					tfB25.setEnabled(false);
+					tfB25.setBackground(Color.GRAY);
+					tfB25.setVisible(false);
+					
+					tfB31.setEnabled(true);
+					tfB31.setBackground(Color.ORANGE);
+					
+					tfB32.setEnabled(true);
+					tfB32.setBackground(Color.ORANGE);
+					
+					tfB33.setEnabled(true);
+					tfB33.setBackground(Color.ORANGE);
+					
+					tfB34.setEnabled(true);
+					tfB34.setBackground(Color.ORANGE);
+					
+					tfB35.setEnabled(false);
+					tfB35.setBackground(Color.GRAY);
+					tfB35.setVisible(false);
+					
+					tfB41.setEnabled(true);
+					tfB41.setBackground(Color.ORANGE);
+					
+					tfB42.setEnabled(true);
+					tfB42.setBackground(Color.ORANGE);
+					
+					tfB43.setEnabled(true);
+					tfB43.setBackground(Color.ORANGE);
+					
+					tfB44.setEnabled(true);
+					tfB44.setBackground(Color.ORANGE);
+					
+					tfB45.setEnabled(false);
+					tfB45.setBackground(Color.GRAY);
+					tfB45.setVisible(false);
+					
+					tfB51.setEnabled(false);
+					tfB51.setBackground(Color.GRAY);
+					tfB51.setVisible(false);
+					
+					tfB52.setEnabled(false);
+					tfB52.setBackground(Color.GRAY);
+					tfB52.setVisible(false);
+					
+					tfB53.setEnabled(false);
+					tfB53.setBackground(Color.GRAY);
+					tfB53.setVisible(false);
+					
+					tfB54.setEnabled(false);
+					tfB54.setBackground(Color.GRAY);
+					tfB54.setVisible(false);
+					
+					tfB55.setEnabled(false);
+					tfB55.setBackground(Color.GRAY);
+					tfB55.setVisible(false);
+					
+					// Matrix E
+					tfE11.setEnabled(true);
+					tfE11.setBackground(Color.ORANGE);
+					
+					tfE12.setEnabled(true);
+					tfE12.setBackground(Color.ORANGE);
+					
+					tfE13.setEnabled(true);
+					tfE13.setBackground(Color.ORANGE);
+					
+					tfE14.setEnabled(true);
+					tfE14.setBackground(Color.ORANGE);
+					
+					tfE15.setEnabled(false);
+					tfE15.setBackground(Color.GRAY);
+					tfE15.setVisible(false);
+					
+					tfE21.setEnabled(true);
+					tfE21.setBackground(Color.ORANGE);
+					
+					tfE22.setEnabled(true);
+					tfE22.setBackground(Color.ORANGE);
+					
+					tfE23.setEnabled(true);
+					tfE23.setBackground(Color.ORANGE);
+					
+					tfE24.setEnabled(true);
+					tfE24.setBackground(Color.ORANGE);
+					
+					tfE25.setEnabled(false);
+					tfE25.setBackground(Color.GRAY);
+					tfE25.setVisible(false);
+					
+					tfE31.setEnabled(true);
+					tfE31.setBackground(Color.ORANGE);
+					
+					tfE32.setEnabled(true);
+					tfE32.setBackground(Color.ORANGE);
+					
+					tfE33.setEnabled(true);
+					tfE33.setBackground(Color.ORANGE);
+					
+					tfE34.setEnabled(true);
+					tfE34.setBackground(Color.ORANGE);
+					
+					tfE35.setEnabled(false);
+					tfE35.setBackground(Color.GRAY);
+					tfE35.setVisible(false);
+					
+					tfE41.setEnabled(true);
+					tfE41.setBackground(Color.ORANGE);
+					
+					tfE42.setEnabled(true);
+					tfE42.setBackground(Color.ORANGE);
+					
+					tfE43.setEnabled(true);
+					tfE43.setBackground(Color.ORANGE);
+					
+					tfE44.setEnabled(true);
+					tfE44.setBackground(Color.ORANGE);
+					
+					tfE45.setEnabled(false);
+					tfE45.setBackground(Color.GRAY);
+					tfE45.setVisible(false);
+					
+					tfE51.setEnabled(false);
+					tfE51.setBackground(Color.GRAY);
+					tfE51.setVisible(false);
+					
+					tfE52.setEnabled(false);
+					tfE52.setBackground(Color.GRAY);
+					tfE52.setVisible(false);
+					
+					tfE53.setEnabled(false);
+					tfE53.setBackground(Color.GRAY);
+					tfE53.setVisible(false);
+					
+					tfE54.setEnabled(false);
+					tfE54.setBackground(Color.GRAY);
+					tfE54.setVisible(false);
+					
+					tfE55.setEnabled(false);
+					tfE55.setBackground(Color.GRAY);
+					tfE55.setVisible(false);
+				}
+				else if(grad == 5) {
+					// Matrix A
+					tfA11.setEnabled(true);
+					tfA11.setBackground(Color.ORANGE);
+					
+					tfA12.setEnabled(true);
+					tfA12.setBackground(Color.ORANGE);
+					
+					tfA13.setEnabled(true);
+					tfA13.setBackground(Color.ORANGE);
+					
+					tfA14.setEnabled(true);
+					tfA14.setBackground(Color.ORANGE);
+					
+					tfA15.setEnabled(true);
+					tfA15.setBackground(Color.ORANGE);
+					
+					tfA21.setEnabled(true);
+					tfA21.setBackground(Color.ORANGE);
+					
+					tfA22.setEnabled(true);
+					tfA22.setBackground(Color.ORANGE);
+					
+					tfA23.setEnabled(true);
+					tfA23.setBackground(Color.ORANGE);
+					
+					tfA24.setEnabled(true);
+					tfA24.setBackground(Color.ORANGE);
+					
+					tfA25.setEnabled(true);
+					tfA25.setBackground(Color.ORANGE);
+					
+					tfA31.setEnabled(true);
+					tfA31.setBackground(Color.ORANGE);
+					
+					tfA32.setEnabled(true);
+					tfA32.setBackground(Color.ORANGE);
+					
+					tfA33.setEnabled(true);
+					tfA33.setBackground(Color.ORANGE);
+					
+					tfA34.setEnabled(true);
+					tfA34.setBackground(Color.ORANGE);
+					
+					tfA35.setEnabled(true);
+					tfA35.setBackground(Color.ORANGE);
+					
+					tfA41.setEnabled(true);
+					tfA41.setBackground(Color.ORANGE);
+					
+					tfA42.setEnabled(true);
+					tfA42.setBackground(Color.ORANGE);
+					
+					tfA43.setEnabled(true);
+					tfA43.setBackground(Color.ORANGE);
+					
+					tfA44.setEnabled(true);
+					tfA44.setBackground(Color.ORANGE);
+					
+					tfA45.setEnabled(true);
+					tfA45.setBackground(Color.ORANGE);
+					
+					tfA51.setEnabled(true);
+					tfA51.setBackground(Color.ORANGE);
+					
+					tfA52.setEnabled(true);
+					tfA52.setBackground(Color.ORANGE);
+					
+					tfA53.setEnabled(true);
+					tfA53.setBackground(Color.ORANGE);
+					
+					tfA54.setEnabled(true);
+					tfA54.setBackground(Color.ORANGE);
+					
+					tfA55.setEnabled(true);
+					tfA55.setBackground(Color.ORANGE);
+					
+					// Matrix B
+					tfB11.setEnabled(true);
+					tfB11.setBackground(Color.ORANGE);
+					
+					tfB12.setEnabled(true);
+					tfB12.setBackground(Color.ORANGE);
+					
+					tfB13.setEnabled(true);
+					tfB13.setBackground(Color.ORANGE);
+					
+					tfB14.setEnabled(true);
+					tfB14.setBackground(Color.ORANGE);
+					
+					tfB15.setEnabled(true);
+					tfB15.setBackground(Color.ORANGE);
+					
+					tfB21.setEnabled(true);
+					tfB21.setBackground(Color.ORANGE);
+					
+					tfB22.setEnabled(true);
+					tfB22.setBackground(Color.ORANGE);
+					
+					tfB23.setEnabled(true);
+					tfB23.setBackground(Color.ORANGE);
+					
+					tfB24.setEnabled(true);
+					tfB24.setBackground(Color.ORANGE);
+					
+					tfB25.setEnabled(true);
+					tfB25.setBackground(Color.ORANGE);
+					
+					tfB31.setEnabled(true);
+					tfB31.setBackground(Color.ORANGE);
+					
+					tfB32.setEnabled(true);
+					tfB32.setBackground(Color.ORANGE);
+					
+					tfB33.setEnabled(true);
+					tfB33.setBackground(Color.ORANGE);
+					
+					tfB34.setEnabled(true);
+					tfB34.setBackground(Color.ORANGE);
+					
+					tfB35.setEnabled(true);
+					tfB35.setBackground(Color.ORANGE);
+					
+					tfB41.setEnabled(true);
+					tfB41.setBackground(Color.ORANGE);
+					
+					tfB42.setEnabled(true);
+					tfB42.setBackground(Color.ORANGE);
+					
+					tfB43.setEnabled(true);
+					tfB43.setBackground(Color.ORANGE);
+					
+					tfB44.setEnabled(true);
+					tfB44.setBackground(Color.ORANGE);
+					
+					tfB45.setEnabled(true);
+					tfB45.setBackground(Color.ORANGE);
+					
+					tfB51.setEnabled(true);
+					tfB51.setBackground(Color.ORANGE);
+					
+					tfB52.setEnabled(true);
+					tfB52.setBackground(Color.ORANGE);
+					
+					tfB53.setEnabled(true);
+					tfB53.setBackground(Color.ORANGE);
+					
+					tfB54.setEnabled(true);
+					tfB54.setBackground(Color.ORANGE);
+					
+					tfB55.setEnabled(true);
+					tfB55.setBackground(Color.ORANGE);
+					
+					// Matrix E
+					tfE11.setEnabled(true);
+					tfE11.setBackground(Color.ORANGE);
+					
+					tfE12.setEnabled(true);
+					tfE12.setBackground(Color.ORANGE);
+					
+					tfE13.setEnabled(true);
+					tfE13.setBackground(Color.ORANGE);
+					
+					tfE14.setEnabled(true);
+					tfE14.setBackground(Color.ORANGE);
+					
+					tfE15.setEnabled(true);
+					tfE15.setBackground(Color.ORANGE);
+					
+					tfE21.setEnabled(true);
+					tfE21.setBackground(Color.ORANGE);
+					
+					tfE22.setEnabled(true);
+					tfE22.setBackground(Color.ORANGE);
+					
+					tfE23.setEnabled(true);
+					tfE23.setBackground(Color.ORANGE);
+					
+					tfE24.setEnabled(true);
+					tfE24.setBackground(Color.ORANGE);
+					
+					tfE25.setEnabled(true);
+					tfE25.setBackground(Color.ORANGE);
+					
+					tfE31.setEnabled(true);
+					tfE31.setBackground(Color.ORANGE);
+					
+					tfE32.setEnabled(true);
+					tfE32.setBackground(Color.ORANGE);
+					
+					tfE33.setEnabled(true);
+					tfE33.setBackground(Color.ORANGE);
+					
+					tfE34.setEnabled(true);
+					tfE34.setBackground(Color.ORANGE);
+					
+					tfE35.setEnabled(true);
+					tfE35.setBackground(Color.ORANGE);
+					
+					tfE41.setEnabled(true);
+					tfE41.setBackground(Color.ORANGE);
+					
+					tfE42.setEnabled(true);
+					tfE42.setBackground(Color.ORANGE);
+					
+					tfE43.setEnabled(true);
+					tfE43.setBackground(Color.ORANGE);
+					
+					tfE44.setEnabled(true);
+					tfE44.setBackground(Color.ORANGE);
+					
+					tfE45.setEnabled(true);
+					tfE45.setBackground(Color.ORANGE);
+					
+					tfE51.setEnabled(true);
+					tfE51.setBackground(Color.ORANGE);
+					
+					tfE52.setEnabled(true);
+					tfE52.setBackground(Color.ORANGE);
+					
+					tfE53.setEnabled(true);
+					tfE53.setBackground(Color.ORANGE);
+					
+					tfE54.setEnabled(true);
+					tfE54.setBackground(Color.ORANGE);
+					
+					tfE55.setEnabled(true);
+					tfE55.setBackground(Color.ORANGE);
+					
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Keine gültige Dimension!!!");
+				}
+			}
+		});
+		btnOk.setBackground(Color.ORANGE);
+		btnOk.setBounds(375, 10, 55, 30);
+		contentPane.add(btnOk);
+	}
+}
